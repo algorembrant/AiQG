@@ -528,10 +528,10 @@ function App() {
             <h1 className="text-5xl md:text-6xl font-bold golden-glow-intro intro-title">
               AiQuasarous Global
             </h1>
-            <p className="text-xl text-gray-300 intro-subtitle">
+            <p className="text-2xl text-gray-200 intro-subtitle font-serif italic tracking-wide">
               Drag-drop-open your favorite Model
             </p>
-            <p className="text-lg text-gray-400 intro-count">
+            <p className="text-xl text-yellow-300 intro-count font-light tracking-widest uppercase">
               {ALL_LLMS.length} AI platforms available worldwide
             </p>
             <div className="flex justify-center gap-2 mt-8 intro-dots">
@@ -845,10 +845,14 @@ function App() {
 
         .intro-subtitle {
           animation: slideUp 0.8s ease-out 0.6s both;
+          text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
         }
 
         .intro-count {
           animation: slideUp 0.8s ease-out 0.9s both;
+          text-shadow: 0 0 20px rgba(255, 215, 0, 0.5),
+                       0 2px 10px rgba(255, 215, 0, 0.3);
+          letter-spacing: 0.15em;
         }
 
         .intro-dots {
