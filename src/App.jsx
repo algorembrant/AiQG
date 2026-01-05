@@ -553,7 +553,7 @@ function App() {
               Drag-drop-open your favorite Model
             </p>
             <p className="text-xl text-yellow-300 intro-count font-light tracking-widest uppercase">
-              {ALL_LLMS.length} AI platforms available worldwide
+              Explore {ALL_LLMS.length} AI platforms available worldwide
             </p>
             <div className="flex justify-center gap-2 mt-8 intro-dots">
               <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
