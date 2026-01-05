@@ -335,6 +335,31 @@ const ALL_LLMS = [
   { id: 'kindroid', name: 'Kindroid', url: 'https://kindroid.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Social' },
   { id: 'nomi', name: 'Nomi AI', url: 'https://nomi.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Social' },
   { id: 'chai', name: 'Chai', url: 'https://www.chai-research.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Social' },
+
+  // Search & Productivity
+  { id: 'fini', name: 'Fini AI', url: 'https://www.usefini.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Productivity' },
+  { id: 'zenochat', name: 'ZenoChat', url: 'https://textcortex.com/templates/zeno-chat-gpt-alternative', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Productivity' },
+  { id: 'chatsonic', name: 'Chatsonic', url: 'https://writesonic.com/chat', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Specialized' },
+
+  // HR & Enterprise
+  { id: 'amber', name: 'Amber by inFeedo', url: 'https://www.infeedo.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
+  { id: 'paradox-olivia', name: 'Paradox Olivia', url: 'https://www.paradox.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
+  { id: 'mya', name: 'Mya Systems', url: 'https://www.mya.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
+  { id: 'eightfold', name: 'Eightfold AI', url: 'https://eightfold.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
+  { id: 'ideal', name: 'Ideal', url: 'https://ideal.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
+
+  // Multi-Model & Experimental
+  { id: 'botpress', name: 'Botpress', url: 'https://botpress.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Developer' },
+  { id: 'knock', name: 'Knock AI', url: 'https://www.knock-ai.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Developer' },
+
+  // Specialized Tools
+  { id: 'lyro', name: 'Lyro', url: 'https://www.tidio.com/lyro/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
+  { id: 'nice-chatbot', name: 'NiCE Chatbot', url: 'https://www.nice.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
+
+  // Open Source & Regional
+  { id: 'llama-chat', name: 'Llama Chat', url: 'https://www.llama.meta.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
+  { id: 'yi-chat', name: 'Yi Chat', url: 'https://www.01.ai/yi', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Chinese' },
+
 ];
 
 // Mock stock data generator for demonstration
