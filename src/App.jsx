@@ -42,7 +42,7 @@ const ALL_LLMS = [
   { id: 'grok', name: 'Grok', url: 'https://grok.x.ai/', icon: 'https://abs.twimg.com/favicons/twitter.3.ico', category: 'Open Source' },
   { id: 'gemma', name: 'Gemma', url: 'https://ai.google.dev/gemma', icon: 'https://www.gstatic.com/lamda/images/gemini_favicon_f069958c85030456e93de685481c559f160ea06b.png', category: 'Open Source' },
   { id: 'bloom', name: 'Bloom', url: 'https://huggingface.co/bigscience/bloom', icon: 'https://huggingface.co/front/assets/huggingface_logo.svg', category: 'Open Source' },
-  { id: 'falcon-180b', name: 'Falcon 180B', url: 'https://huggingface.co/tiiuae/falcon-180B', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
+  { id: 'falcon-180b', name: 'Falcon 180B', url: 'https://huggingface.co/tiiuae/falcon-180B', icon: 'https://th.bing.com/th/id/ODF.0FvwAD4tBPkdBYxXIChydg?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Open Source' },
   { id: 'vicuna', name: 'Vicuna', url: 'https://chat.lmsys.org/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
   { id: 'wizardlm', name: 'WizardLM', url: 'https://github.com/nlpxucan/WizardLM', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
   { id: 'openchat', name: 'OpenChat', url: 'https://openchat.team/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
@@ -127,8 +127,8 @@ const ALL_LLMS = [
   { id: 'sabia', name: 'Sabiá', url: 'https://www.maritaca.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Latin American' },
   
   // African AI
-  { id: 'lelapa', name: 'Lelapa AI', url: 'https://lelapa.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'African' },
-  { id: 'jacaranda', name: 'Jacaranda', url: 'https://huggingface.co/Jacaranda', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'African' },
+  { id: 'lelapa', name: 'Lelapa AI', url: 'https://lelapa.ai/', icon: 'https://lelapa.ai/wp-content/uploads/2022/12/Wisdom.png', category: 'African' },
+  { id: 'jacaranda', name: 'Jacaranda', url: 'https://www.jacaranda.com.au/jactutor/', icon: 'https://th.bing.com/th/id/ODF.Y8rXo3sQTn1YBRXcbBDHUw?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'African' },
   
   // Specialized AI
   { id: 'character', name: 'Character.AI', url: 'https://character.ai/', icon: 'https://th.bing.com/th/id/ODF.4FRiwrgK3Me4b6XYmes99Q?w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2', category: 'Specialized' },
@@ -291,18 +291,18 @@ const ALL_LLMS = [
   { id: 'magician', name: 'Magician', url: 'https://magician.design/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Design' },
   
   // Translation AI
-  { id: 'deepl', name: 'DeepL', url: 'https://www.deepl.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Translation' },
-  { id: 'papago', name: 'Papago', url: 'https://papago.naver.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Translation' },
-  { id: 'unbabel', name: 'Unbabel', url: 'https://unbabel.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Translation' },
+  { id: 'deepl', name: 'DeepL', url: 'https://www.deepl.com/', icon: 'https://th.bing.com/th/id/ODF.jIVFCE9QNMa8gmxF89wEww?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Translation' },
+  { id: 'papago', name: 'Papago', url: 'https://papago.naver.com/', icon: 'https://th.bing.com/th/id/ODF.V04IqIOCWasl09E6Lof57w?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Translation' },
+  { id: 'unbabel', name: 'Unbabel', url: 'https://unbabel.com/', icon: 'https://th.bing.com/th/id/ODF.p9Z-DlFfBuiaeoi0Zp3E3A?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Translation' },
   
   // Agent Frameworks
-  { id: 'crew-ai', name: 'CrewAI', url: 'https://www.crewai.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Agents' },
-  { id: 'superagi', name: 'SuperAGI', url: 'https://superagi.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Agents' },
-  { id: 'agentgpt', name: 'AgentGPT', url: 'https://agentgpt.reworkd.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Agents' },
-  { id: 'auto-gpt', name: 'Auto-GPT', url: 'https://github.com/Significant-Gravitas/AutoGPT', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Agents' },
-  { id: 'babyagi', name: 'BabyAGI', url: 'https://github.com/yoheinakajima/babyagi', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Agents' },
-  { id: 'langflow', name: 'Langflow', url: 'https://www.langflow.org/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Agents' },
-  { id: 'flowise', name: 'Flowise', url: 'https://flowiseai.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Agents' },
+  { id: 'crew-ai', name: 'CrewAI', url: 'https://www.crewai.com/', icon: 'https://th.bing.com/th/id/ODF.lXncTATrR7Ynm-0wK0iXLA?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Agents' },
+  { id: 'superagi', name: 'SuperAGI', url: 'https://superagi.com/', icon: 'https://th.bing.com/th/id/ODF.9Nt1snhLyaPRQWIQ_79GQw?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Agents' },
+  { id: 'agentgpt', name: 'AgentGPT', url: 'https://agentgpt.reworkd.ai/', icon: 'https://th.bing.com/th/id/ODF.6nRpqpqA4-SuaBLAFsGI4Q?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Agents' },
+  { id: 'auto-gpt', name: 'Auto-GPT', url: 'https://github.com/Significant-Gravitas/AutoGPT', icon: 'https://avatars.githubusercontent.com/u/130738209?s=48&v=4', category: 'Agents' },
+  { id: 'babyagi', name: 'BabyAGI', url: 'https://github.com/yoheinakajima/babyagi', icon: 'https://avatars.githubusercontent.com/u/1701418?s=48&v=4', category: 'Agents' },
+  { id: 'langflow', name: 'Langflow', url: 'https://www.langflow.org/', icon: 'https://th.bing.com/th/id/ODF.GXaoAUW7bnuEfLdKFV7wIg?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Agents' },
+  { id: 'flowise', name: 'Flowise', url: 'https://flowiseai.com/', icon: 'https://th.bing.com/th/id/ODF.7eN6m32eFK5xjxqVoWv9Dg?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Agents' },
   
   // Local/Offline AI
   { id: 'jan', name: 'Jan', url: 'https://jan.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Local' },
