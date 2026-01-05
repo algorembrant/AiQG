@@ -401,9 +401,10 @@ function App() {
   const [showSidebar, setShowSidebar] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [stocks, setStocks] = useState(generateMockStocks()); // Start with mock data immediately
-  const [loading, setLoading] = useState(false); // Don't show loading on updates
+  const [stocks, setStocks] = useState(generateMockStocks());
+  const [loading, setLoading] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
+  const [showThemes, setShowThemes] = useState(true);
 
   const categories = ['All', ...new Set(ALL_LLMS.map(llm => llm.category))].sort();
 
@@ -424,10 +425,7 @@ function App() {
   useEffect(() => {
     const fetchStocks = async () => {
       try {
-        // Don't show loading state on background updates
-        
-        // Using Finnhub API for real-time stock data
-        const API_KEY = 'ct9pr41r01qnhfe93jagct9pr41r01qnhfe93jb0'; // Free demo key
+        const API_KEY = 'ct9pr41r01qnhfe93jagct9pr41r01qnhfe93jb0';
         const symbols = [
           'AAPL', 'GOOGL', 'MSFT', 'AMZN', 'META', 'NVDA', 'TSLA', 'NFLX', 'AMD', 'INTC',
           'JPM', 'BAC', 'V', 'MA', 'WMT', 'HD', 'DIS', 'BA', 'KO', 'PEP',
@@ -436,7 +434,6 @@ function App() {
         
         const stockData = [];
         
-        // Fetch in batches to avoid rate limits
         for (let i = 0; i < symbols.length; i++) {
           try {
             const symbol = symbols[i];
@@ -459,7 +456,6 @@ function App() {
               });
             }
             
-            // Small delay between requests to avoid rate limiting
             if (i < symbols.length - 1) {
               await new Promise(resolve => setTimeout(resolve, 100));
             }
@@ -468,7 +464,6 @@ function App() {
           }
         }
         
-        // Only update if we got fresh data, otherwise keep existing
         if (stockData.length > 0) {
           console.log(`Updated with ${stockData.length} real-time stocks`);
           setStocks(stockData);
@@ -476,13 +471,10 @@ function App() {
         
       } catch (error) {
         console.error('Error fetching stock data:', error);
-        // Keep existing data on error
       }
     };
 
-    // Fetch immediately in background
     fetchStocks();
-    // Update every 60 seconds for real-time data
     const interval = setInterval(fetchStocks, 60000);
     return () => clearInterval(interval);
   }, []);
@@ -596,19 +588,30 @@ function App() {
                 className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900"
               />
             </div>
-            <div className="flex gap-2 flex-wrap">
-              {categories.map(cat => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                    selectedCategory === cat ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-medium text-gray-600">Themes</span>
+              <button
+                onClick={() => setShowThemes(!showThemes)}
+                className="text-xs text-gray-600 hover:text-gray-900 underline"
+              >
+                {showThemes ? 'Hide' : 'Show'}
+              </button>
             </div>
+            {showThemes && (
+              <div className="flex gap-2 flex-wrap">
+                {categories.map(cat => (
+                  <button
+                    key={cat}
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                      selectedCategory === cat ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="flex-1 overflow-y-auto p-4">
