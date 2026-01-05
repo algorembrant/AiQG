@@ -16,7 +16,7 @@ const ALL_LLMS = [
   { id: 'metaphor', name: 'Exa', url: 'https://exa.ai/', icon: 'https://th.bing.com/th/id/ODF.khxyxXKDVNfQEJx0es8uFw?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Search' },
   { id: 'komo', name: 'Komo AI', url: 'https://komo.ai/', icon: 'https://komo.ai/favicon.ico', category: 'Search' },
   { id: 'consensus', name: 'Consensus', url: 'https://consensus.app/', icon: 'https://th.bing.com/th/id/ODF.Bz8ANAlfvLkBbCmp5ruAFQ?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Search' },
-  { id: 'elicit', name: 'Elicit', url: 'https://elicit.com/', icon: 'https://th.bing.com/th/id/OIP.NMFx72V0ANYh9ZAVd3fBJwHaFj?w=108&h=108&c=1&bgcl=e57183&r=0&o=7&pid=ImgRC&rm=3', category: 'Search' },
+  { id: 'elicit', name: 'Elicit', url: 'https://elicit.com/', icon: 'https://framerusercontent.com/images/Vjg7ANBZPC8Ulu3iwyAVm5B1UNQ.png', category: 'Search' },
   { id: 'scholarai', name: 'ScholarAI', url: 'https://scholar-ai.net/', icon: 'https://scholar-ai.net/favicon.ico', category: 'Search' },
   
   // Multi-Model Platforms
@@ -24,7 +24,7 @@ const ALL_LLMS = [
   { id: 'huggingchat', name: 'HuggingChat', url: 'https://huggingface.co/chat/', icon: 'https://huggingface.co/front/assets/huggingface_logo.svg', category: 'Multi-Model' },
   { id: 'forefront', name: 'Forefront', url: 'https://www.forefront.ai/', icon: 'https://th.bing.com/th/id/ODF.bcRFNLnDFgvd7PoYQAZKmg?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Multi-Model' },
   { id: 'ora', name: 'Ora.ai', url: 'https://ora.ai/', icon: 'https://ora.ai/favicon.ico', category: 'Multi-Model' },
-  { id: 'nat', name: 'Nat.dev', url: 'https://nat.dev/', icon: 'https://nat.dev/favicon.ico', category: 'Multi-Model' },
+  { id: 'nat', name: 'Nat.dev', url: 'https://nat.dev/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Multi-Model' },
   { id: 'chathub', name: 'ChatHub', url: 'https://app.chathub.gg/', icon: 'https://chathub.gg/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.d64fdbac.png&w=64&q=75&dpl=dpl_6nGDw82WAnSnjxR3NpEsfKRgV2S9', category: 'Multi-Model' },
   
   // Open Source AI
@@ -47,7 +47,7 @@ const ALL_LLMS = [
   { id: 'wenxin', name: 'Wenxin Yiyan', url: 'https://yiyan.baidu.com/', icon: 'https://nlp-eb.cdn.bcebos.com/logo/favicon.ico', category: 'Chinese' },
   { id: 'minimax', name: 'MiniMax', url: 'https://www.minimaxi.com/', icon: 'https://www.minimaxi.com/favicon.ico', category: 'Chinese' },
   { id: '01ai', name: 'Yi', url: 'https://www.01.ai/', icon: 'https://www.01.ai/favicon.ico', category: 'Chinese' },
-  { id: 'step', name: 'StepChat', url: 'https://stepchat.cn/', icon: 'https://stepchat.cn/favicon.ico', category: 'Chinese' },
+  { id: 'step', name: 'StepChat', url: 'https://stepchat.cn/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Chinese' },
   { id: 'yuanbao', name: 'Yuanbao', url: 'https://yuanbao.tencent.com/', icon: 'https://yuanbao.tencent.com/favicon.ico', category: 'Chinese' },
   
   // Specialized AI
@@ -63,7 +63,7 @@ const ALL_LLMS = [
   // Code-Focused AI
   { id: 'codeium', name: 'Codeium Chat', url: 'https://codeium.com/chat', icon: 'https://codeium.com/favicon.ico', category: 'Coding' },
   { id: 'tabnine', name: 'Tabnine', url: 'https://www.tabnine.com/', icon: 'https://www.tabnine.com/favicon.ico', category: 'Coding' },
-  { id: 'replit', name: 'Replit AI', url: 'https://replit.com/ai', icon: 'https://replit.com/public/images/favicon.ico', category: 'Coding' },
+  { id: 'replit', name: 'Replit AI', url: 'https://replit.com/ai', icon: 'https://th.bing.com/th/id/ODF._QFn8UDhgp1c8uNXe1mYBQ?w=32&h=32&qlt=94&pcl=fffffa&o=6&pid=1.2', category: 'Coding' },
   { id: 'cursor', name: 'Cursor', url: 'https://cursor.sh/', icon: 'https://cursor.sh/favicon.ico', category: 'Coding' },
   { id: 'github-copilot', name: 'GitHub Copilot', url: 'https://github.com/features/copilot', icon: 'https://github.githubassets.com/favicons/favicon.svg', category: 'Coding' },
   { id: 'codewhisperer', name: 'Amazon CodeWhisperer', url: 'https://aws.amazon.com/codewhisperer/', icon: 'https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico', category: 'Coding' },
@@ -91,7 +91,7 @@ const ALL_LLMS = [
   
   // Creative AI
   { id: 'midjourney', name: 'Midjourney', url: 'https://www.midjourney.com/', icon: 'https://th.bing.com/th/id/ODF.3sJnfMVcw7tOfxzyjgrHag?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Creative' },
-  { id: 'dall-e', name: 'DALL-E', url: 'https://labs.openai.com/', icon: 'https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.59f2e898.png', category: 'Creative' },
+  { id: 'dall-e', name: 'DALL-E', url: 'https://labs.openai.com/', icon: 'https://bnassets.botnation.ai/images/chatgpt/dalle_logo.5e04f948b52798a99daa191458aa46e77cd15d65.gif?cache=0', category: 'Creative' },
   { id: 'leonardo', name: 'Leonardo.ai', url: 'https://leonardo.ai/', icon: 'https://leonardo.ai/favicon.ico', category: 'Creative' },
   { id: 'playground', name: 'Playground AI', url: 'https://playgroundai.com/', icon: 'https://playgroundai.com/favicon.ico', category: 'Creative' },
   { id: 'stable-diffusion', name: 'Stable Diffusion', url: 'https://stablediffusionweb.com/', icon: 'https://stablediffusionweb.com/favicon.ico', category: 'Creative' },
@@ -99,45 +99,45 @@ const ALL_LLMS = [
   { id: 'flux', name: 'Flux', url: 'https://flux.black-forest-labs.com/', icon: 'https://th.bing.com/th/id/ODF.sHDv6SoS0-R48rl2JTDNhw?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Creative' },
   { id: 'runway', name: 'Runway', url: 'https://app.runwayml.com/signup', icon: 'https://th.bing.com/th/id/ODF.ElkxoMb-OM3VP1fnsexcIA?w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2', category: 'Creative' },
   { id: 'pika', name: 'Pika', url: 'https://pika.art/', icon: 'https://pika.art/favicon.ico', category: 'Creative' },
-  { id: 'sora', name: 'Sora', url: 'https://openai.com/sora', icon: 'https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.59f2e898.png', category: 'Creative' },
+  { id: 'sora', name: 'Sora', url: 'https://openai.com/sora', icon: 'https://tse1.mm.bing.net/th/id/OIP.iYq3DNSi5IgMfFafLsXSNQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3', category: 'Creative' },
   
   // Voice & Audio AI
   { id: 'elevenlabs', name: 'ElevenLabs', url: 'https://elevenlabs.io/', icon: 'https://elevenlabs.io/favicon.ico', category: 'Voice' },
-  { id: 'murf', name: 'Murf AI', url: 'https://murf.ai/', icon: 'https://murf.ai/favicon.ico', category: 'Voice' },
-  { id: 'resemble', name: 'Resemble AI', url: 'https://www.resemble.ai/', icon: 'https://www.resemble.ai/favicon.ico', category: 'Voice' },
-  { id: 'descript', name: 'Descript', url: 'https://www.descript.com/', icon: 'https://www.descript.com/favicon.ico', category: 'Voice' },
+  { id: 'murf', name: 'Murf AI', url: 'https://murf.ai/', icon: 'https://th.bing.com/th/id/ODF.yCdMjPhiGRvHAaGkir1__A?w=32&h=32&o=6&pid=AdsPlus', category: 'Voice' },
+  { id: 'resemble', name: 'Resemble AI', url: 'https://www.resemble.ai/', icon: 'https://10web.io/wp-content/uploads/2024/07/Resemble_AI.png', category: 'Voice' },
+  { id: 'descript', name: 'Descript', url: 'https://www.descript.com/', icon: 'https://th.bing.com/th/id/ODF.MwUvUcqOXm7NDLqb9R8v6Q?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Voice' },
   { id: 'speechify', name: 'Speechify', url: 'https://speechify.com/', icon: 'https://speechify.com/favicon.ico', category: 'Voice' },
   
   // Experimental & Research
-  { id: 'pi', name: 'Pi (Inflection)', url: 'https://pi.ai/', icon: 'https://pi.ai/favicon.ico', category: 'Experimental' },
-  { id: 'cohere', name: 'Cohere Chat', url: 'https://coral.cohere.com/', icon: 'https://coral.cohere.com/favicon.ico', category: 'Experimental' },
-  { id: 'ai21', name: 'AI21 Studio', url: 'https://studio.ai21.com/', icon: 'https://studio.ai21.com/favicon.ico', category: 'Experimental' },
+  { id: 'pi', name: 'Pi (Inflection)', url: 'https://pi.ai/', icon: 'https://th.bing.com/th/id/ODF.iBZdyeyAhzJZ3-7hSw_NgQ?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Experimental' },
+  { id: 'cohere', name: 'Cohere Chat', url: 'https://coral.cohere.com/', icon: 'https://th.bing.com/th/id/ODF.7dhXfTg-kOAs1r7jwE7dmA?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Experimental' },
+  { id: 'ai21', name: 'AI21 Studio', url: 'https://studio.ai21.com/', icon: 'https://th.bing.com/th/id/ODF.2aOCWHKp23wSxD6Zx06vEw?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Experimental' },
   { id: 'openrouter', name: 'OpenRouter', url: 'https://openrouter.ai/', icon: 'https://openrouter.ai/favicon.ico', category: 'Experimental' },
-  { id: 'together', name: 'Together AI', url: 'https://www.together.ai/', icon: 'https://www.together.ai/favicon.ico', category: 'Experimental' },
+  { id: 'together', name: 'Together AI', url: 'https://www.together.ai/', icon: 'https://th.bing.com/th/id/ODF.pig0nnIrfHMVF3MgAf3eTg?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Experimental' },
   { id: 'fireworks', name: 'Fireworks AI', url: 'https://fireworks.ai/', icon: 'https://fireworks.ai/favicon.ico', category: 'Experimental' },
-  { id: 'replicate', name: 'Replicate', url: 'https://replicate.com/', icon: 'https://replicate.com/favicon.ico', category: 'Experimental' },
+  { id: 'replicate', name: 'Replicate', url: 'https://replicate.com/', icon: 'https://th.bing.com/th/id/ODF.QV2HMKeZiS85NOkilQLeNg?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Experimental' },
   
   // Productivity AI
   { id: 'notion', name: 'Notion AI', url: 'https://www.notion.so/product/ai', icon: 'https://www.notion.so/images/favicon.ico', category: 'Productivity' },
-  { id: 'mem', name: 'Mem', url: 'https://get.mem.ai/', icon: 'https://get.mem.ai/favicon.ico', category: 'Productivity' },
+  { id: 'mem', name: 'Mem', url: 'https://get.mem.ai/', icon: 'https://th.bing.com/th/id/ODF.CUmjLed5Wp-voGxizsY6jw?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Productivity' },
   { id: 'otter', name: 'Otter.ai', url: 'https://otter.ai/', icon: 'https://otter.ai/favicon.ico', category: 'Productivity' },
   { id: 'fireflies', name: 'Fireflies.ai', url: 'https://fireflies.ai/', icon: 'https://fireflies.ai/favicon.ico', category: 'Productivity' },
-  { id: 'grammarly', name: 'Grammarly', url: 'https://www.grammarly.com/', icon: 'https://static.grammarly.com/assets/files/efe8a7bac837c3b0327f1c6e2a05c437/favicon.svg', category: 'Productivity' },
-  { id: 'wordtune', name: 'Wordtune', url: 'https://www.wordtune.com/', icon: 'https://www.wordtune.com/favicon.ico', category: 'Productivity' },
+  { id: 'grammarly', name: 'Grammarly', url: 'https://www.grammarly.com/', icon: 'https://th.bing.com/th/id/ODF.JzWVgzsJoqi__tApX3BPvA?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Productivity' },
+  { id: 'wordtune', name: 'Wordtune', url: 'https://www.wordtune.com/', icon: 'https://th.bing.com/th/id/ODF.cDrJiyoQZ6pVi6dovvI-Ag?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Productivity' },
   { id: 'chatbase', name: 'Chatbase', url: 'https://www.chatbase.co/', icon: 'https://www.chatbase.co/favicon.ico', category: 'Productivity' },
   
   // Business & Enterprise
-  { id: 'harvey', name: 'Harvey AI', url: 'https://www.harvey.ai/', icon: 'https://www.harvey.ai/favicon.ico', category: 'Business' },
-  { id: 'intercom', name: 'Intercom AI', url: 'https://www.intercom.com/ai', icon: 'https://www.intercom.com/favicon.ico', category: 'Business' },
-  { id: 'drift', name: 'Drift', url: 'https://www.drift.com/', icon: 'https://www.drift.com/favicon.ico', category: 'Business' },
-  { id: 'ada', name: 'Ada', url: 'https://www.ada.cx/', icon: 'https://www.ada.cx/favicon.ico', category: 'Business' },
+  { id: 'harvey', name: 'Harvey AI', url: 'https://www.harvey.ai/', icon: 'https://th.bing.com/th/id/ODF.h-e3jCd-MNfs2FaGqdYLiA?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Business' },
+  { id: 'intercom', name: 'Intercom AI', url: 'https://www.intercom.com/ai', icon: 'https://th.bing.com/th/id/ODF.WG6z74mbh9EhFHl_o7_r8w?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Business' },
+  { id: 'drift', name: 'Drift', url: 'https://www.drift.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
+  { id: 'ada', name: 'Ada', url: 'https://www.ada.cx/', icon: 'https://th.bing.com/th/id/ODF.FX5skWkp3UgBHLQtJM8Jzw?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Business' },
   { id: 'salesforce-einstein', name: 'Einstein GPT', url: 'https://www.salesforce.com/einstein/', icon: 'https://www.salesforce.com/favicon.ico', category: 'Business' },
   
   // Developer Platforms
-  { id: 'anthropic-console', name: 'Claude API Playground', url: 'https://console.anthropic.com/', icon: 'https://claude.ai/images/claude_app_icon.png', category: 'Developer' },
-  { id: 'openai-playground', name: 'OpenAI Playground', url: 'https://platform.openai.com/playground', icon: 'https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.59f2e898.png', category: 'Developer' },
+  { id: 'anthropic-console', name: 'Claude API Playground', url: 'https://console.anthropic.com/', icon: 'https://play-lh.googleusercontent.com/4S1nfdKsH_1tJodkHrBHimqlCTE6qx6z22zpMyPaMc_Rlr1EdSFDI1I6UEVMnokG5zI=w240-h480', category: 'Developer' },
+  { id: 'openai-playground', name: 'OpenAI Playground', url: 'https://platform.openai.com/playground', icon: 'https://latestlogo.com/wp-content/uploads/2024/01/openai-icon.png', category: 'Developer' },
   { id: 'vercel-ai', name: 'Vercel AI', url: 'https://sdk.vercel.ai/', icon: 'https://vercel.com/favicon.ico', category: 'Developer' },
-  { id: 'langchain', name: 'LangChain', url: 'https://www.langchain.com/', icon: 'https://www.langchain.com/favicon.ico', category: 'Developer' },
+  { id: 'langchain', name: 'LangChain', url: 'https://www.langchain.com/', icon: 'https://th.bing.com/th/id/ODF.EmVY4N_nJ-gjB7_yqN4JfQ?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Developer' },
   { id: 'llamaindex', name: 'LlamaIndex', url: 'https://www.llamaindex.ai/', icon: 'https://www.llamaindex.ai/favicon.ico', category: 'Developer' },
 ];
 
