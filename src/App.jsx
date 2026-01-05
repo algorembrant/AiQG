@@ -87,10 +87,9 @@ const ALL_LLMS = [
   { id: 'jais', name: 'JAIS', url: 'https://inceptioniai.ai/jais/', icon: 'https://th.bing.com/th/id/ODF.g6lSy1ZwCzuapMaGl9OKeA?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Arabic' },
   { id: 'falcon', name: 'Falcon AI', url: 'https://falconllm.tii.ae/', icon: 'https://th.bing.com/th/id/ODF.VIagT0QUhG9fhZpb5wjmUQ?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Arabic' },
   { id: 'allam', name: 'ALLaM', url: 'https://www.sdaia.gov.sa/en/', icon: 'https://www.bing.com/th/id/OIP.l-u7zlf9tKV5FJs7uOp07QAAAA?w=160&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2', category: 'Arabic' },
-  { id: 'humain', name: 'Humain Chat', url: 'https://humain.sa/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Arabic' },
-  { id: 'arabert', name: 'AraBERT', url: 'https://huggingface.co/aubmindlab/bert-base-arabertv2', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Arabic' },
-  { id: 'aragpt', name: 'AraGPT', url: 'https://github.com/aub-mind/arabert', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Arabic' },
-  
+  { id: 'humain', name: 'Humain Chat', url: 'https://www.humain.com/en/news/humain-chat-launch.html', icon: 'https://www.siasat.com/wp-content/uploads/2025/08/Humain-Chat.jpg', category: 'Arabic' },
+  { id: 'arabert', name: 'AraBERT', url: 'https://huggingface.co/aubmindlab/bert-base-arabertv2', icon: 'https://cdn-avatars.huggingface.co/v1/production/uploads/1593638141642-5e586b9e6bc35159a08ca571.png', category: 'Arabic' },
+
   // Southeast Asian AI
   { id: 'sealion', name: 'SEA-LION', url: 'https://aisingapore.org/aiproducts/sea-lion/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Southeast Asian' },
   { id: 'seallm', name: 'SeaLLM', url: 'https://damo.alibaba.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Southeast Asian' },
@@ -236,22 +235,22 @@ const ALL_LLMS = [
   { id: 'grammarly', name: 'Grammarly', url: 'https://www.grammarly.com/', icon: 'https://th.bing.com/th/id/ODF.JzWVgzsJoqi__tApX3BPvA?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Productivity' },
   { id: 'wordtune', name: 'Wordtune', url: 'https://www.wordtune.com/', icon: 'https://th.bing.com/th/id/ODF.cDrJiyoQZ6pVi6dovvI-Ag?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Productivity' },
   { id: 'chatbase', name: 'Chatbase', url: 'https://www.chatbase.co/', icon: 'https://www.chatbase.co/favicon.ico', category: 'Productivity' },
-  { id: 'reclaim', name: 'Reclaim AI', url: 'https://reclaim.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Productivity' },
-  { id: 'tldv', name: 'tl;dv', url: 'https://tldv.io/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Productivity' },
-  { id: 'sembly', name: 'Sembly AI', url: 'https://www.sembly.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Productivity' },
-  { id: 'voiceflow', name: 'Voiceflow', url: 'https://www.voiceflow.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Productivity' },
+  { id: 'reclaim', name: 'Reclaim AI', url: 'https://reclaim.ai/', icon: 'https://th.bing.com/th/id/ODF.RBPDS_jnTiqW6LvgibmAnw?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Productivity' },
+  { id: 'tldv', name: 'tl;dv', url: 'https://tldv.io/', icon: 'https://th.bing.com/th/id/ODF.K5cqVQ9NoJ-Uvvsl78VX9g?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Productivity' },
+  { id: 'sembly', name: 'Sembly AI', url: 'https://www.sembly.ai/', icon: 'https://th.bing.com/th/id/ODF.HNshOjFM0q83JMEvCwbKzg?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Productivity' },
+  { id: 'voiceflow', name: 'Voiceflow', url: 'https://www.voiceflow.com/', icon: 'https://th.bing.com/th/id/ODF.WuiN6Jyh_VhQheILW3Hycw?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Productivity' },
   
   // Business & Enterprise
   { id: 'harvey', name: 'Harvey AI', url: 'https://www.harvey.ai/', icon: 'https://th.bing.com/th/id/ODF.h-e3jCd-MNfs2FaGqdYLiA?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Business' },
   { id: 'intercom', name: 'Intercom AI', url: 'https://www.intercom.com/ai', icon: 'https://th.bing.com/th/id/ODF.WG6z74mbh9EhFHl_o7_r8w?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Business' },
-  { id: 'drift', name: 'Drift', url: 'https://www.drift.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
+  { id: 'drift', name: 'Drift', url: 'https://www.drift.ai/', icon: 'https://static.wixstatic.com/media/873291_c0fec63aeba143a689b41dc5152afb21~mv2.png/v1/crop/x_0,y_1,w_1930,h_791/fill/w_184,h_76,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/drift%20ai%20-%20preview%20-%20transparent-06_edited.png', category: 'Business' },
   { id: 'ada', name: 'Ada', url: 'https://www.ada.cx/', icon: 'https://th.bing.com/th/id/ODF.FX5skWkp3UgBHLQtJM8Jzw?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Business' },
   { id: 'salesforce-einstein', name: 'Einstein GPT', url: 'https://www.salesforce.com/einstein/', icon: 'https://www.salesforce.com/favicon.ico', category: 'Business' },
-  { id: 'zendesk-ai', name: 'Zendesk AI', url: 'https://www.zendesk.com/service/ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
-  { id: 'glean', name: 'Glean', url: 'https://www.glean.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
-  { id: 'moveworks', name: 'Moveworks', url: 'https://www.moveworks.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
-  { id: 'cresta', name: 'Cresta', url: 'https://cresta.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
-  { id: 'observe', name: 'Observe.AI', url: 'https://www.observe.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Business' },
+  { id: 'zendesk-ai', name: 'Zendesk AI', url: 'https://www.zendesk.com/service/ai/', icon: 'https://th.bing.com/th/id/ODF.jmr6mEmq0zOwr77HecRGjg?w=32&h=32&o=6&pid=AdsPlus', category: 'Business' },
+  { id: 'glean', name: 'Glean', url: 'https://www.glean.com/', icon: 'https://th.bing.com/th/id/ODF.BeSjpRdTwhYy42jfcW12dw?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Business' },
+  { id: 'moveworks', name: 'Moveworks', url: 'https://www.moveworks.com/', icon: 'https://th.bing.com/th/id/ODF.oMZ_QXcbARtHdiZ5Zz6yTQ?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Business' },
+  { id: 'cresta', name: 'Cresta', url: 'https://cresta.com/', icon: 'https://th.bing.com/th/id/ODF.o7YssfZfpa7Lzk-i3gQ56g?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Business' },
+  { id: 'observe', name: 'Observe.AI', url: 'https://www.observe.ai/', icon: 'https://th.bing.com/th/id/ODF.juhT5tPCzIENezFd_DWnRg?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Business' },
   
   // Developer Platforms
   { id: 'anthropic-console', name: 'Claude API Playground', url: 'https://console.anthropic.com/', icon: 'https://play-lh.googleusercontent.com/4S1nfdKsH_1tJodkHrBHimqlCTE6qx6z22zpMyPaMc_Rlr1EdSFDI1I6UEVMnokG5zI=w240-h480', category: 'Developer' },
