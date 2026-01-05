@@ -517,7 +517,6 @@ function App() {
             <div className="intro-logo">
               <img 
                 src="image-2.png" 
-                alt="AiQuasarous Global Logo" 
                 className="w-300 h-300 mx-auto mb-4 logo-glow-glitter"
               />
             </div>
