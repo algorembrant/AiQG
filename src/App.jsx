@@ -364,6 +364,8 @@ const ALL_LLMS = [
   { id: 'llama-chat', name: 'Llama Chat', url: 'https://www.llama.meta.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
   { id: 'yi-chat', name: 'Yi Chat', url: 'https://www.01.ai/yi', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Chinese' },
 
+  // Trading Open-source
+  { id: 'Lean', name: 'Lean', url: 'https://github.com/QuantConnect/Lean/', icon: 'https://avatars.githubusercontent.com/u/3912814?s=48&v=4', category: 'Trading' },
 ];
 
 // Mock stock data generator for demonstration
