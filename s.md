@@ -1,4 +1,4 @@
-# 108LLMs-Hub-v.2.0
+
 
 # 
 
@@ -204,5 +204,6 @@ The production-ready files will be in the `dist` folder.
 Feel free to submit issues or pull requests to add more AI platforms or improve the interface!
 
 ## License
+
 
 MIT License - feel free to use this project for personal or commercial purposes.
