@@ -387,7 +387,7 @@ function App() {
       <div className={`${showSidebar ? 'w-80' : 'w-0'} transition-all duration-300 border-r border-gray-200 flex flex-col overflow-hidden`}>
         <div className="p-4 border-b border-gray-200">
           <h1 className="text-xl font-semibold mb-2">AiQuasarous Global</h1>
-          <p className="text-sm text-gray-600">Drag & drop your favorite AI or LLM model</p>
+          <p className="text-sm text-gray-600">Drag & drop and open your favorite AI or LLM model</p>
           <p className="text-xs text-gray-500 mt-1">{ALL_LLMS.length} AI platforms available worldwide</p>
         </div>
 
