@@ -515,11 +515,7 @@ function App() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black intro-screen">
           <div className="text-center space-y-6 px-8">
             <div className="intro-logo">
-              <img 
-                src="image-2.png" 
-                alt="AiQuasarous Global Logo" 
-                className="w-300 h-300 mx-auto mb-4 logo-glow-glitter"
-              />
+              <Sparkles className="w-16 h-16 mx-auto mb-4 text-yellow-400 sparkle-intro" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold golden-glow-intro intro-title">
               AiQuasarous Global
@@ -771,19 +767,6 @@ function App() {
           50% { opacity: 0.7; transform: scale(1.1); }
         }
 
-        @keyframes glitter {
-          0%, 100% { 
-            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8))
-                    drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
-            transform: scale(1);
-          }
-          50% { 
-            filter: drop-shadow(0 0 12px rgba(255, 215, 0, 1))
-                    drop-shadow(0 0 16px rgba(255, 215, 0, 0.7));
-            transform: scale(1.05);
-          }
-        }
-
         @keyframes glow-pulse {
           0%, 100% { 
             text-shadow: 0 0 5px rgba(255, 215, 0, 0.6),
@@ -857,11 +840,6 @@ function App() {
         .sparkle-intro {
           animation: sparkle 1.5s ease-in-out infinite;
           filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
-        }
-
-        .logo-glow-glitter {
-          animation: glitter 2s ease-in-out infinite;
-          border-radius: 8px;
         }
 
         .intro-title {
