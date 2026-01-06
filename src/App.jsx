@@ -20,7 +20,7 @@ const ALL_LLMS = [
   { id: 'scholarai', name: 'ScholarAI', url: 'https://scholar-ai.net/', icon: 'https://scholar-ai.net/favicon.ico', category: 'Search' },
   { id: 'tavily', name: 'Tavily', url: 'https://tavily.com/', icon: 'https://tavily.com/favicon.ico', category: 'Search' },
   { id: 'morphic', name: 'Morphic', url: 'https://morphic.sh/', icon: 'https://morphic.sh/favicon.ico', category: 'Search' },
-  { id: 'iask', name: 'iAsk.ai', url: 'https://iask.ai/', icon: 'https://th.bing.com/th/id/ODF.2fOAZ6vZUn5A_maWopELAA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2' },
+  { id: 'iask', name: 'iAsk.ai', url: 'https://iask.ai/', icon: 'https://th.bing.com/th/id/ODF.2fOAZ6vZUn5A_maWopELAA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Search' },
 
   // Multi-Model Platforms
   { id: 'poe', name: 'Poe', url: 'https://poe.com/', icon: 'https://th.bing.com/th/id/ODF.qYxPu_oPp_nqOxV638KgEA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Multi-Model' },
@@ -392,7 +392,27 @@ const getRandomImage = () => {
 const generateMockStocks = () => {
   const symbols = [
     'AAPL', 'GOOGL', 'MSFT', 'AMZN', 'META', 'NVDA', 'TSLA', 'NFLX', 'AMD', 'INTC', 
+    'CRM', 'ORCL', 'ADBE', 'CSCO', 'AVGO', 'QCOM', 'TXN', 'IBM', 'INTU', 'NOW',
+    'JPM', 'BAC', 'WFC', 'GS', 'MS', 'C', 'BLK', 'SCHW', 'AXP', 'V', 'MA', 'PYPL',
+    'JNJ', 'UNH', 'PFE', 'ABBV', 'TMO', 'MRK', 'LLY', 'ABT', 'DHR', 'BMY', 'AMGN',
+    'WMT', 'HD', 'PG', 'KO', 'PEP', 'COST', 'MCD', 'NKE', 'SBUX', 'TGT', 'LOW',
+    'XOM', 'CVX', 'COP', 'SLB', 'EOG', 'PXD', 'MPC', 'PSX', 'VLO', 'OXY',
+    'BA', 'HON', 'UPS', 'CAT', 'DE', 'GE', 'MMM', 'LMT', 'RTX', 'FDX',
+    'DIS', 'CMCSA', 'T', 'VZ', 'TMUS', 'NFLX', 'WBD', 'PARA', 'FOXA',
+    'TSLA', 'F', 'GM', 'TM', 'HMC', 'RIVN', 'LCID',
+    'NVDA', 'AMD', 'INTC', 'TSM', 'AVGO', 'QCOM', 'MU', 'AMAT', 'LRCX', 'KLAC',
+    'AMZN', 'BABA', 'SHOP', 'MELI', 'SQ', 'PYPL', 'EBAY',
+    'CRM', 'NOW', 'SNOW', 'DDOG', 'PLTR', 'U', 'NET', 'ZS', 'CRWD', 'OKTA',
+    'META', 'SNAP', 'PINS', 'RDDT',
+    'GILD', 'VRTX', 'REGN', 'BIIB', 'MRNA', 'BNTX',
+    'BA', 'LMT', 'NOC', 'GD', 'RTX', 'TDG',
+    'NKE', 'LULU', 'TJX', 'ROST',
+    'PLD', 'AMT', 'CCI', 'EQIX', 'PSA', 'O',
+    'COIN', 'MSTR', 'RIOT', 'MARA',
+    'SPY', 'QQQ', 'DIA', 'IWM', 'VTI', 'VOO',
+    'TSM', 'ASML', 'NVO', 'SAP', 'TM', 'SONY', 'SNY'
   ];
+
   return symbols.map(symbol => {
     const basePrice = Math.random() * 500 + 100;
     const change = (Math.random() - 0.5) * 10;
@@ -536,6 +556,8 @@ function App() {
         const API_KEY = 'ct9pr41r01qnhfe93jagct9pr41r01qnhfe93jb0';
         const symbols = [
           'AAPL', 'GOOGL', 'MSFT', 'AMZN', 'META', 'NVDA', 'TSLA', 'NFLX', 'AMD', 'INTC',
+          'JPM', 'BAC', 'V', 'MA', 'WMT', 'HD', 'DIS', 'BA', 'KO', 'PEP',
+          'COST', 'NKE', 'MCD', 'SBUX', 'XOM', 'CVX', 'JNJ', 'UNH', 'PFE', 'ABBV'
         ];
         
         const stockData = [];
