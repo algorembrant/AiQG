@@ -1,5 +1,5 @@
 [<img width="1346" height="334" alt="image" src="https://github.com/user-attachments/assets/a0322d87-e728-4869-aac4-87f73b843440" />](https://aiqg.vercel.app/)<br>
-# 🌍 Explore AI Models From Around the World | All in One Place
+## 🌍 Explore AI Models From Around the World | All in One Place
 
 ### Feeling stuck with this problem?
 
