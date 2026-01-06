@@ -150,7 +150,7 @@ const ALL_LLMS = [
   { id: 'anthropic-workbench', name: 'Claude Workbench', url: 'https://console.anthropic.com/workbench', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Specialized' },
   
   // Code-Focused AI
-  { id: 'codeium', name: 'Codeium Chat', url: 'https://codeium.com/chat', icon: 'https://codeium.com/favicon.ico', category: 'Coding' },
+  { id: 'codeium', name: 'Codeium Chat', url: 'https://codeium.com/chat', icon: 'https://www.gartner.com/pi/vendorimages/codeium_1723350650795.png', category: 'Coding' },
   { id: 'tabnine', name: 'Tabnine', url: 'https://www.tabnine.com/', icon: 'https://www.tabnine.com/favicon.ico', category: 'Coding' },
   { id: 'replit', name: 'Replit AI', url: 'https://replit.com/ai', icon: 'https://th.bing.com/th/id/ODF._QFn8UDhgp1c8uNXe1mYBQ?w=32&h=32&qlt=94&pcl=fffffa&o=6&pid=1.2', category: 'Coding' },
   { id: 'cursor', name: 'Cursor', url: 'https://cursor.sh/', icon: 'https://cursor.sh/favicon.ico', category: 'Coding' },
