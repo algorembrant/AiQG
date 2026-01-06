@@ -49,7 +49,7 @@ const ALL_LLMS = [
   { id: 'zephyr', name: 'Zephyr', url: 'https://huggingface.co/HuggingFaceH4/zephyr-7b-beta', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
   { id: 'phi 1', name: 'Microsoft Phi 1', url: 'https://huggingface.co/microsoft/phi-1', icon: 'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/microsoft-color.png', category: 'Open Source' },
   { id: 'phi 2', name: 'Microsoft Phi 2', url: 'https://huggingface.co/microsoft/phi-2/', icon: 'https://pbs.twimg.com/media/GDajRZuacAAFpbv.jpg', category: 'Open Source' },
-  { id: 'phi 3', name: 'Microsoft Phi 3', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/phi-3-vision-%e2%80%93-catalyzing-multimodal-innovation/4170251', icon: 'https://miro.medium.com/v2/resize:fit:1200/1*Qd7Bs1c0H7Evl4oxA4AaMQ.jpeg', category: 'Open Source' },
+  { id: 'phi 3', name: 'Microsoft Phi 3', url: 'https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/phi-3-vision-%e2%80%93-catalyzing-multimodal-innovation/4170251', icon: 'https://ai-bot.cn/wp-content/uploads/2024/04/microsoft-phi-3.png', category: 'Open Source' },
   { id: 'phi 4', name: 'Microsoft Phi 4', url: 'https://labs.ai.azure.com/projects/phi-4/', icon: 'https://th.bing.com/th/id/ODF.W1M02AyyLZOqmrXWKHi20Q?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Open Source' },
   { id: 'qwen', name: 'Qwen', url: 'https://chat.qwen.ai/', icon: 'https://th.bing.com/th/id/OIP.-kpt_DiOLgl3fhBEwz0XrwHaHa?w=108&h=108&c=1&bgcl=46ca79&r=0&o=7&pid=ImgRC&rm=3', category: 'Open Source' },
   
