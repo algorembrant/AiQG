@@ -1,4 +1,5 @@
-# 🌍 Explore AI Models From Around the World — All in One Place
+[<img width="1346" height="334" alt="image" src="https://github.com/user-attachments/assets/a0322d87-e728-4869-aac4-87f73b843440" />](https://aiqg.vercel.app/)<br>
+# 🌍 Explore AI Models From Around the World | All in One Place
 
 ### Feeling stuck with this problem?
 
@@ -68,13 +69,6 @@ One place.
 One click.
 
 Welcome to your AI starting point. <br><br>
-
-
-
-[<img width="1346" height="334" alt="image" src="https://github.com/user-attachments/assets/a0322d87-e728-4869-aac4-87f73b843440" />](https://aiqg.vercel.app/)
-
-
-
 
 [<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/2b5361e1-3151-4465-91d5-0b04dc762702" />](https://aiqg.vercel.app/)
 
