@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, ExternalLink, Grip, AlertCircle, Layout, Grid, Search, Github, TrendingUp, TrendingDown, Sparkles } from 'lucide-react';
+import { X, ExternalLink, Grip, AlertCircle, Layout, Grid, Search, Github, TrendingUp, TrendingDown, Layers, ZoomIn, Maximize2, Monitor, AppWindow } from 'lucide-react';
 
 const ALL_LLMS = [
   // Major AI Assistants
@@ -371,48 +371,28 @@ const ALL_LLMS = [
 
 ];
 
-
-// Mock stock data generator for demonstration
+// Mock stock data generator
 const generateMockStocks = () => {
   const symbols = [
-    // Tech Giants
     'AAPL', 'GOOGL', 'MSFT', 'AMZN', 'META', 'NVDA', 'TSLA', 'NFLX', 'AMD', 'INTC', 
     'CRM', 'ORCL', 'ADBE', 'CSCO', 'AVGO', 'QCOM', 'TXN', 'IBM', 'INTU', 'NOW',
-    // Finance
     'JPM', 'BAC', 'WFC', 'GS', 'MS', 'C', 'BLK', 'SCHW', 'AXP', 'V', 'MA', 'PYPL',
-    // Healthcare & Pharma
     'JNJ', 'UNH', 'PFE', 'ABBV', 'TMO', 'MRK', 'LLY', 'ABT', 'DHR', 'BMY', 'AMGN',
-    // Consumer & Retail
     'WMT', 'HD', 'PG', 'KO', 'PEP', 'COST', 'MCD', 'NKE', 'SBUX', 'TGT', 'LOW',
-    // Energy
     'XOM', 'CVX', 'COP', 'SLB', 'EOG', 'PXD', 'MPC', 'PSX', 'VLO', 'OXY',
-    // Industrial
     'BA', 'HON', 'UPS', 'CAT', 'DE', 'GE', 'MMM', 'LMT', 'RTX', 'FDX',
-    // Media & Entertainment
     'DIS', 'CMCSA', 'T', 'VZ', 'TMUS', 'NFLX', 'WBD', 'PARA', 'FOXA',
-    // Automotive
     'TSLA', 'F', 'GM', 'TM', 'HMC', 'RIVN', 'LCID',
-    // Semiconductor
     'NVDA', 'AMD', 'INTC', 'TSM', 'AVGO', 'QCOM', 'MU', 'AMAT', 'LRCX', 'KLAC',
-    // E-commerce & Payment
     'AMZN', 'BABA', 'SHOP', 'MELI', 'SQ', 'PYPL', 'EBAY',
-    // Cloud & Software
     'CRM', 'NOW', 'SNOW', 'DDOG', 'PLTR', 'U', 'NET', 'ZS', 'CRWD', 'OKTA',
-    // Social Media
     'META', 'SNAP', 'PINS', 'RDDT',
-    // Biotech
     'GILD', 'VRTX', 'REGN', 'BIIB', 'MRNA', 'BNTX',
-    // Aerospace
     'BA', 'LMT', 'NOC', 'GD', 'RTX', 'TDG',
-    // Luxury & Apparel
     'NKE', 'LULU', 'TJX', 'ROST',
-    // REITs
     'PLD', 'AMT', 'CCI', 'EQIX', 'PSA', 'O',
-    // Crypto Related
     'COIN', 'MSTR', 'RIOT', 'MARA',
-    // ETFs
     'SPY', 'QQQ', 'DIA', 'IWM', 'VTI', 'VOO',
-    // International
     'TSM', 'ASML', 'NVO', 'SAP', 'TM', 'SONY', 'SNY'
   ];
   return symbols.map(symbol => {
@@ -437,9 +417,11 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [stocks, setStocks] = useState(generateMockStocks());
-  const [loading, setLoading] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
   const [showThemes, setShowThemes] = useState(true);
+  
+  // State for Zooming (Applied to Sidebar)
+  const [zoomLevel, setZoomLevel] = useState(100);
 
   const categories = ['All', ...new Set(ALL_LLMS.map(llm => llm.category))].sort();
 
@@ -510,7 +492,6 @@ function App() {
     };
 
     fetchStocks();
-    //10 minutes delay
     const interval = setInterval(fetchStocks, 100000);
     return () => clearInterval(interval);
   }, []);
@@ -544,8 +525,34 @@ function App() {
     window.open(llm.url, `llm_${llm.id}`, `width=${w},height=${h},left=${left},top=${top}`);
   };
 
+  // Function to open all currently active LLMs in new TABS
+  const openAllTabs = () => {
+    if (activeLLMs.length === 0) return;
+    
+    if (window.confirm(`Attempting to open ${activeLLMs.length} new tabs. Please ensure pop-ups are enabled for this site.`)) {
+      activeLLMs.forEach((llm, index) => {
+        setTimeout(() => {
+          window.open(llm.url, '_blank');
+        }, index * 300);
+      });
+    }
+  };
+
+  // Function to open all currently active LLMs in POPUP WINDOWS
+  const openAllPopups = () => {
+    if (activeLLMs.length === 0) return;
+    
+    if (window.confirm(`Attempting to open ${activeLLMs.length} popup windows.`)) {
+      activeLLMs.forEach((llm, index) => {
+        setTimeout(() => {
+          openInNewWindow(llm);
+        }, index * 300);
+      });
+    }
+  };
+
   return (
-    <div className="flex flex-col h-screen bg-white text-gray-900">
+    <div className="flex flex-col h-screen bg-white text-gray-900 overflow-hidden">
       {/* Animated Intro Screen */}
       {showIntro && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black intro-screen">
@@ -554,6 +561,7 @@ function App() {
               <img 
                 src="image-2.png" 
                 className="w-300 h-300 mx-auto mb-4 logo-glow-glitter"
+                alt="AiQuasarous Logo"
               />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold golden-glow-intro intro-title">
@@ -575,7 +583,7 @@ function App() {
       )}
 
       {/* Top LLM Banner */}
-      <div className="h-16 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 overflow-hidden relative border-b border-gray-700">
+      <div className="h-16 flex-shrink-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 overflow-hidden relative border-b border-gray-700">
         <div className="absolute inset-0 flex items-center">
           <div className="flex animate-scroll whitespace-nowrap">
             {[...ALL_LLMS, ...ALL_LLMS, ...ALL_LLMS].map((llm, index) => (
@@ -594,109 +602,188 @@ function App() {
         </div>
       </div>
 
-      <div className="flex flex-1 overflow-hidden">
-        <div className={`${showSidebar ? 'w-80' : 'w-0'} transition-all duration-300 border-r border-gray-200 flex flex-col overflow-hidden`}>
-          <div className="p-4 border-b border-gray-200">
-            <div className="flex items-center justify-between mb-2">
-              <h1 className="text-xl font-bold golden-glow whitespace-nowrap">
-                AiQuasarous Global
-              </h1>
-              <a 
-                href="https://github.com/algorembrant/AiQG-v1.0" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 px-3 py-1.5 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-xs font-medium"
-                title="Support this project on GitHub"
-              >
-                <Github className="w-4 h-4" />
-                Star
-              </a>
+      <div className="flex flex-1 overflow-hidden relative">
+        {/* Sidebar - ZOOM APPLIED HERE */}
+        <div 
+          className={`${showSidebar ? 'w-80' : 'w-0'} transition-all duration-300 border-r border-gray-200 flex flex-col overflow-hidden flex-shrink-0 bg-white z-10 origin-top-left`}
+        >
+          {/* Zoom Wrapper for Sidebar Content */}
+          <div style={{ 
+            zoom: `${zoomLevel}%`,
+            // Fallback for Firefox
+            MozTransform: `scale(${zoomLevel / 100})`,
+            MozTransformOrigin: 'top left',
+            width: navigator.userAgent.includes("Firefox") ? `${100 * (100 / zoomLevel)}%` : '100%',
+            height: '100%'
+           }} className="flex flex-col h-full">
+            
+            <div className="p-4 border-b border-gray-200">
+              <div className="flex items-center justify-between mb-2">
+                <h1 className="text-xl font-bold golden-glow whitespace-nowrap">
+                  AiQuasarous Global
+                </h1>
+                <a 
+                  href="https://github.com/algorembrant/AiQG-v1.0" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 px-3 py-1.5 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-xs font-medium"
+                  title="Support this project on GitHub"
+                >
+                  <Github className="w-4 h-4" />
+                  Star
+                </a>
+              </div>
+              <p className="text-sm text-gray-600">Drag-drop-open your favorite Model</p>
+              <p className="text-xs text-gray-500 mt-1">{ALL_LLMS.length} AI platforms available worldwide</p>
             </div>
-            <p className="text-sm text-gray-600">Drag-drop-open your favorite Model</p>
-            <p className="text-xs text-gray-500 mt-1">{ALL_LLMS.length} AI platforms available worldwide</p>
-          </div>
 
-          <div className="px-4 py-3 border-b border-gray-200">
-            <div className="relative mb-3">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search platforms..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900"
-              />
+            <div className="px-4 py-3 border-b border-gray-200">
+              <div className="relative mb-3">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search platforms..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900"
+                />
+              </div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-medium text-gray-600">Themes</span>
+                <button
+                  onClick={() => setShowThemes(!showThemes)}
+                  className="text-xs text-gray-600 hover:text-gray-900 underline"
+                >
+                  {showThemes ? 'Hide' : 'Show'}
+                </button>
+              </div>
+              {showThemes && (
+                <div className="flex gap-2 flex-wrap">
+                  {categories.map(cat => (
+                    <button
+                      key={cat}
+                      onClick={() => setSelectedCategory(cat)}
+                      className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                        selectedCategory === cat ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-medium text-gray-600">Themes</span>
-              <button
-                onClick={() => setShowThemes(!showThemes)}
-                className="text-xs text-gray-600 hover:text-gray-900 underline"
-              >
-                {showThemes ? 'Hide' : 'Show'}
-              </button>
-            </div>
-            {showThemes && (
-              <div className="flex gap-2 flex-wrap">
-                {categories.map(cat => (
-                  <button
-                    key={cat}
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                      selectedCategory === cat ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
+
+            <div className="flex-1 overflow-y-auto p-4">
+              <div className="space-y-2">
+                {filteredLLMs.map(llm => (
+                  <div
+                    key={llm.id}
+                    draggable
+                    onDragStart={(e) => handleDragStart(e, llm)}
+                    className="p-3 border border-gray-200 rounded-lg cursor-move hover:border-gray-400 hover:shadow-sm transition-all bg-white"
                   >
-                    {cat}
-                  </button>
+                    <div className="flex items-center gap-3">
+                      <img 
+                        src={llm.icon} 
+                        alt={llm.name} 
+                        className="w-8 h-8 rounded-lg flex-shrink-0" 
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }} 
+                      />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-medium text-sm truncate">{llm.name}</h3>
+                        <span className="text-xs text-gray-500">{llm.category}</span>
+                      </div>
+                      <Grip className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                    </div>
+                  </div>
                 ))}
               </div>
-            )}
-          </div>
-
-          <div className="flex-1 overflow-y-auto p-4">
-            <div className="space-y-2">
-              {filteredLLMs.map(llm => (
-                <div
-                  key={llm.id}
-                  draggable
-                  onDragStart={(e) => handleDragStart(e, llm)}
-                  className="p-3 border border-gray-200 rounded-lg cursor-move hover:border-gray-400 hover:shadow-sm transition-all bg-white"
-                >
-                  <div className="flex items-center gap-3">
-                    <img 
-                      src={llm.icon} 
-                      alt={llm.name} 
-                      className="w-8 h-8 rounded-lg flex-shrink-0" 
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }} 
-                    />
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-sm truncate">{llm.name}</h3>
-                      <span className="text-xs text-gray-500">{llm.category}</span>
-                    </div>
-                    <Grip className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col">
-          <div className="h-14 border-b border-gray-200 flex items-center justify-between px-4">
-            <button onClick={() => setShowSidebar(!showSidebar)} className="p-2 hover:bg-gray-100 rounded-lg">
-              <Layout className="w-5 h-5" />
-            </button>
-            <div className="text-sm text-gray-600">
-              {activeLLMs.length} {activeLLMs.length === 1 ? 'model' : 'models'}
+        {/* Main Content Area */}
+        <div className="flex-1 flex flex-col min-w-0">
+          {/* Controls Header */}
+          <div className="h-14 flex-shrink-0 border-b border-gray-200 flex items-center justify-between px-4 bg-white">
+            <div className="flex items-center gap-4">
+              <button onClick={() => setShowSidebar(!showSidebar)} className="p-2 hover:bg-gray-100 rounded-lg" title="Toggle Sidebar">
+                <Layout className="w-5 h-5" />
+              </button>
+              <div className="text-sm text-gray-600 hidden md:block">
+                {activeLLMs.length} {activeLLMs.length === 1 ? 'model' : 'models'} active
+              </div>
             </div>
-            <button onClick={() => setActiveLLMs([])} className="px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">
-              Clear All
-            </button>
+
+            {/* Right Side Controls */}
+            <div className="flex items-center gap-4">
+              {/* Zoom Control */}
+              <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200">
+                <ZoomIn className="w-4 h-4 text-gray-500" />
+                <input 
+                  type="range" 
+                  min="25" 
+                  max="150" 
+                  value={zoomLevel} 
+                  onChange={(e) => setZoomLevel(e.target.value)}
+                  className="w-24 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-gray-900"
+                  title="Adjust Sidebar Zoom"
+                />
+                <span className="text-xs font-mono w-10 text-right">{zoomLevel}%</span>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-2">
+                {/* Open All TABS */}
+                <button 
+                  onClick={openAllTabs} 
+                  disabled={activeLLMs.length === 0}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+                    activeLLMs.length === 0 
+                    ? 'text-gray-400 bg-gray-50 cursor-not-allowed' 
+                    : 'text-white bg-blue-600 hover:bg-blue-700'
+                  }`}
+                  title="Open all active models in new tabs"
+                >
+                  <Monitor className="w-4 h-4" />
+                  <span className="hidden sm:inline">Openall Tabs</span>
+                </button>
+
+                {/* Open All POPUPS */}
+                <button 
+                  onClick={openAllPopups} 
+                  disabled={activeLLMs.length === 0}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+                    activeLLMs.length === 0 
+                    ? 'text-gray-400 bg-gray-50 cursor-not-allowed' 
+                    : 'text-white bg-purple-600 hover:bg-purple-700'
+                  }`}
+                  title="Open all active models in new popup windows"
+                >
+                  <AppWindow className="w-4 h-4" />
+                  <span className="hidden sm:inline">Openall Popups</span>
+                </button>
+
+                <button 
+                  onClick={() => setActiveLLMs([])} 
+                  disabled={activeLLMs.length === 0}
+                  className="px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-100 rounded-lg border border-transparent hover:border-gray-200 transition-all"
+                >
+                  Clear All
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div onDragOver={handleDragOver} onDrop={handleDrop} className="flex-1 overflow-hidden">
+          {/* Droppable Workspace Area */}
+          <div 
+            onDragOver={handleDragOver} 
+            onDrop={handleDrop} 
+            className="flex-1 overflow-auto bg-gray-50 relative p-4"
+          >
             {activeLLMs.length === 0 ? (
               <div className="h-full flex items-center justify-center text-gray-400">
                 <div className="text-center">
@@ -706,15 +793,16 @@ function App() {
                 </div>
               </div>
             ) : (
-              <div className={`h-full grid gap-2 p-2 ${
+              <div className={`grid gap-4 h-full ${
                 activeLLMs.length === 1 ? 'grid-cols-1' :
                 activeLLMs.length === 2 ? 'grid-cols-2' :
                 activeLLMs.length === 3 ? 'grid-cols-3' :
-                activeLLMs.length === 4 ? 'grid-cols-2 grid-rows-2' : 'grid-cols-3'
+                activeLLMs.length === 4 ? 'grid-cols-2 grid-rows-2' : 
+                'grid-cols-3 auto-rows-fr'
               }`}>
                 {activeLLMs.map((llm) => (
-                  <div key={llm.id} className="relative border border-gray-200 rounded-lg overflow-hidden bg-white flex flex-col">
-                    <div className="h-12 flex items-center justify-between px-4 border-b border-gray-200 bg-gray-50">
+                  <div key={llm.id} className="relative border border-gray-200 rounded-lg overflow-hidden bg-white flex flex-col shadow-sm h-full">
+                    <div className="h-10 flex-shrink-0 flex items-center justify-between px-3 border-b border-gray-200 bg-gray-50">
                       <div className="flex items-center gap-2">
                         <img 
                           src={llm.icon} 
@@ -726,7 +814,7 @@ function App() {
                       </div>
                       <div className="flex items-center gap-1">
                         <button onClick={() => openInNewWindow(llm)} className="p-1.5 hover:bg-gray-200 rounded" title="Open in new window">
-                          <ExternalLink className="w-4 h-4" />
+                          <Maximize2 className="w-4 h-4" />
                         </button>
                         <button onClick={() => removeLLM(llm.id)} className="p-1.5 hover:bg-gray-200 rounded">
                           <X className="w-4 h-4" />
@@ -734,19 +822,19 @@ function App() {
                       </div>
                     </div>
 
-                    <div className="flex-1 relative bg-gray-50">
+                    <div className="flex-1 relative bg-gray-50 overflow-hidden">
                       <div className="absolute inset-0 flex items-center justify-center p-8">
                         <div className="text-center space-y-4">
                           <AlertCircle className="w-12 h-12 mx-auto text-gray-400" />
                           <div>
-                            <h3 className="font-medium text-gray-900 mb-2">Direct Embedding Not Available</h3>
-                            <p className="text-sm text-gray-600 mb-4">Cannot embed due to security restrictions</p>
-                            <div className="space-y-2">
-                              <button onClick={() => openInNewWindow(llm)} className="w-full px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 flex items-center justify-center gap-2">
+                            <h3 className="font-medium text-gray-900 mb-2">Direct Embedding Blocked</h3>
+                            <p className="text-sm text-gray-600 mb-4">Security policies prevent iframe loading</p>
+                            <div className="space-y-2 max-w-xs mx-auto">
+                              <button onClick={() => openInNewWindow(llm)} className="w-full px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
                                 <ExternalLink className="w-4 h-4" />
-                                Open in New Window
+                                Open Popup Window
                               </button>
-                              <a href={llm.url} target="_blank" rel="noopener noreferrer" className="block w-full px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 text-center text-sm">
+                              <a href={llm.url} target="_blank" rel="noopener noreferrer" className="block w-full px-4 py-2 border border-gray-300 rounded-lg hover:bg-white text-center text-sm transition-colors">
                                 Open in New Tab
                               </a>
                             </div>
@@ -763,7 +851,7 @@ function App() {
       </div>
 
       {/* Bottom Stock Ticker */}
-      <div className="h-10 bg-gray-900 overflow-hidden relative border-t border-gray-700">
+      <div className="h-10 flex-shrink-0 bg-gray-900 overflow-hidden relative border-t border-gray-700 z-20">
         <div className="absolute inset-0 flex items-center">
           {stocks.length > 0 && (
             <div className="flex animate-scroll-reverse whitespace-nowrap">
@@ -784,141 +872,47 @@ function App() {
 
       <style>{`
         @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-33.33%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.33%); }
         }
-
         @keyframes scroll-reverse {
-          0% {
-            transform: translateX(-33.33%);
-          }
-          100% {
-            transform: translateX(0);
-          }
+          0% { transform: translateX(-33.33%); }
+          100% { transform: translateX(0); }
         }
-
-        @keyframes sparkle {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.7; transform: scale(1.1); }
-        }
-
         @keyframes glitter {
-          0%, 100% { 
-            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8))
-                    drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
-            transform: scale(1);
-          }
-          50% { 
-            filter: drop-shadow(0 0 12px rgba(255, 215, 0, 1))
-                    drop-shadow(0 0 16px rgba(255, 215, 0, 0.7));
-            transform: scale(1.05);
-          }
+          0%, 100% { filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8)); transform: scale(1); }
+          50% { filter: drop-shadow(0 0 12px rgba(255, 215, 0, 1)); transform: scale(1.05); }
         }
-
         @keyframes glow-pulse {
-          0%, 100% { 
-            text-shadow: 0 0 5px rgba(255, 215, 0, 0.6),
-                         0 0 10px rgba(255, 215, 0, 0.4);
-          }
-          50% { 
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.8),
-                         0 0 15px rgba(255, 215, 0, 0.5);
-          }
+          0%, 100% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.6); }
+          50% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
         }
-
         @keyframes gradient-shift {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
         }
-
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
         @keyframes fadeOut {
           from { opacity: 1; }
-          to { opacity: 0; }
+          to { opacity: 0; pointer-events: none; }
         }
-
         @keyframes slideUp {
-          from { 
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to { 
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes scaleIn {
-          from { 
-            opacity: 0;
-            transform: scale(0.8);
-          }
-          to { 
-            opacity: 1;
-            transform: scale(1);
-          }
+          from { opacity: 0; transform: scale(0.8); }
+          to { opacity: 1; transform: scale(1); }
         }
-
-        @keyframes glow-pulse-big {
-          0%, 100% { 
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
-                         0 0 40px rgba(255, 215, 0, 0.6),
-                         0 0 60px rgba(255, 215, 0, 0.4);
-          }
-          50% { 
-            text-shadow: 0 0 30px rgba(255, 215, 0, 1),
-                         0 0 60px rgba(255, 215, 0, 0.8),
-                         0 0 90px rgba(255, 215, 0, 0.6);
-          }
-        }
-
-        .intro-screen {
-          animation: fadeOut 0.8s ease-in-out 3.2s forwards;
-        }
-
-        .intro-logo {
-          animation: scaleIn 0.6s ease-out;
-        }
-
-        .sparkle-intro {
-          animation: sparkle 1.5s ease-in-out infinite;
-          filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
-        }
-
-        .logo-glow-glitter {
-          animation: glitter 2s ease-in-out infinite;
-          border-radius: 8px;
-        }
-
-        .intro-title {
-          animation: slideUp 0.8s ease-out 0.3s both;
-        }
-
-        .intro-subtitle {
-          animation: slideUp 0.8s ease-out 0.6s both;
-          text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
-        }
-
-        .intro-count {
-          animation: slideUp 0.8s ease-out 0.9s both;
-          text-shadow: 0 0 20px rgba(255, 215, 0, 0.5),
-                       0 2px 10px rgba(255, 215, 0, 0.3);
-          letter-spacing: 0.15em;
-        }
-
-        .intro-dots {
-          animation: fadeIn 0.8s ease-out 1.2s both;
-        }
-
+        
+        .intro-screen { animation: fadeOut 0.8s ease-in-out 3.2s forwards; }
+        .intro-logo { animation: scaleIn 0.6s ease-out; }
+        .logo-glow-glitter { animation: glitter 2s ease-in-out infinite; border-radius: 8px; }
+        .intro-title { animation: slideUp 0.8s ease-out 0.3s both; }
+        .intro-subtitle { animation: slideUp 0.8s ease-out 0.6s both; text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3); }
+        .intro-count { animation: slideUp 0.8s ease-out 0.9s both; letter-spacing: 0.15em; }
+        .intro-dots { animation: slideUp 0.8s ease-out 1.2s both; }
+        
         .golden-glow {
           background: linear-gradient(135deg, #ffd700 0%, #ffed4e 25%, #ffa500 50%, #ffed4e 75%, #ffd700 100%);
           background-size: 200% 200%;
@@ -926,36 +920,41 @@ function App() {
           -webkit-text-fill-color: transparent;
           background-clip: text;
           animation: glow-pulse 2s ease-in-out infinite, gradient-shift 3s ease infinite;
-          position: relative;
         }
-
         .golden-glow-intro {
           background: linear-gradient(135deg, #ffd700 0%, #ffed4e 25%, #ffa500 50%, #ffed4e 75%, #ffd700 100%);
           background-size: 200% 200%;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          animation: glow-pulse-big 2s ease-in-out infinite, gradient-shift 3s ease infinite;
-          position: relative;
+          animation: glow-pulse 2s ease-in-out infinite, gradient-shift 3s ease infinite;
         }
 
-        .sparkle-icon {
-          color: #ffd700;
-          animation: sparkle 2s ease-in-out infinite;
-          filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.8));
+        .animate-scroll { animation: scroll 500s linear infinite; }
+        .animate-scroll-reverse { animation: scroll-reverse 500s linear infinite; }
+        .animate-scroll:hover, .animate-scroll-reverse:hover { animation-play-state: paused; }
+        
+        /* Custom range slider styling */
+        input[type=range] {
+          -webkit-appearance: none;
+          background: transparent;
         }
-
-        .animate-scroll {
-          animation: scroll 500s linear infinite;
+        input[type=range]::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+          background: #111827;
+          cursor: pointer;
+          margin-top: -6px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
-
-        .animate-scroll-reverse {
-          animation: scroll-reverse 500s linear infinite;
-        }
-
-        .animate-scroll:hover,
-        .animate-scroll-reverse:hover {
-          animation-play-state: paused;
+        input[type=range]::-webkit-slider-runnable-track {
+          width: 100%;
+          height: 4px;
+          cursor: pointer;
+          background: #E5E7EB;
+          border-radius: 2px;
         }
       `}</style>
     </div>
