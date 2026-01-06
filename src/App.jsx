@@ -395,6 +395,7 @@ const generateMockStocks = () => {
     'SPY', 'QQQ', 'DIA', 'IWM', 'VTI', 'VOO',
     'TSM', 'ASML', 'NVO', 'SAP', 'TM', 'SONY', 'SNY'
   ];
+
   return symbols.map(symbol => {
     const basePrice = Math.random() * 500 + 100;
     const change = (Math.random() - 0.5) * 10;
@@ -455,16 +456,35 @@ function App() {
   const [page, setPage] = useState(0);
   const ITEMS_PER_PAGE = 50;
 
-  // Mobile detection state
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1680);
+  // --- OPTIMIZED MOBILE DETECTION (Ratio & Device Type) ---
+  const checkMobile = useCallback(() => {
+    if (typeof window === 'undefined') return false;
+    
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    // 1. Regex check for specific mobile operating systems
+    const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase());
+    
+    // 2. Aspect Ratio check: Portrait mode usually implies mobile/tablet
+    const isPortrait = window.innerHeight > window.innerWidth;
+    const ratio = window.innerWidth / window.innerHeight;
+    
+    // 3. Width threshold check
+    const isSmallScreen = window.innerWidth < 1024;
 
-  // STYLING VARIABLES FOR GOLD BUTTONS
-  const isButtonDisabled = activeLLMs.length === 0; // Note: isMobile logic handled by rendering condition
+    // Logic: It's mobile if it matches a device regex OR (it's a small screen AND has a portrait aspect ratio)
+    return isMobileDevice || (isSmallScreen && (isPortrait || ratio < 1.0));
+  }, []);
+
+  const [isMobile, setIsMobile] = useState(checkMobile());
+
+  // --- STYLING VARIABLES FOR GOLD BUTTONS (With Shine Effect) ---
+  const isButtonDisabled = activeLLMs.length === 0;
   
+  // Added 'shine-effect' class and enhanced gradient
   const goldButtonStyle = `
     relative overflow-hidden flex items-center gap-1.5 px-3 py-1.5 text-sm font-bold rounded-lg transition-all transform 
-    text-gray-900 bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 border border-yellow-200 
-    hover:scale-105 active:scale-95 cursor-pointer
+    text-gray-900 bg-gradient-to-r from-yellow-300 via-yellow-400 to-amber-500 border border-yellow-200 
+    hover:scale-105 active:scale-95 cursor-pointer shine-effect
   `;
   
   const disabledButtonStyle = `
@@ -490,11 +510,11 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => {
-        setIsMobile(window.innerWidth < 1000);
+        setIsMobile(checkMobile());
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [checkMobile]);
 
   useEffect(() => {
     setPage(0);
@@ -511,7 +531,7 @@ function App() {
       const matchesCategory = selectedCategory === 'All' || llm.category === selectedCategory;
       const matchesSearch = llm.name.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
-    });
+        });
   }, [selectedCategory, searchQuery]);
 
   const visibleLLMs = useMemo(() => {
@@ -879,8 +899,8 @@ function App() {
                       className={isButtonDisabled ? disabledButtonStyle : goldButtonStyle}
                       style={isButtonDisabled ? {} : luxuriousShadow}
                     >
-                      <Monitor className="w-4 h-4" />
-                      <span className="hidden sm:inline">Openall Tabs</span>
+                      <Monitor className="w-4 h-4 relative z-10" />
+                      <span className="hidden sm:inline relative z-10">Openall Tabs</span>
                     </button>
 
                     <button 
@@ -889,8 +909,8 @@ function App() {
                       className={isButtonDisabled ? disabledButtonStyle : goldButtonStyle}
                       style={isButtonDisabled ? {} : luxuriousShadow}
                     >
-                      <AppWindow className="w-4 h-4" />
-                      <span className="hidden sm:inline">Openall Popups</span>
+                      <AppWindow className="w-4 h-4 relative z-10" />
+                      <span className="hidden sm:inline relative z-10">Openall Popups</span>
                     </button>
                   </>
                 )}
@@ -1037,6 +1057,28 @@ function App() {
           50% { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
         }
+        
+        /* NEW: Button Shine Effect */
+        @keyframes shine-swipe {
+            0% { left: -100%; opacity: 0; }
+            5% { opacity: 0.5; }
+            50% { left: 200%; opacity: 0; }
+            100% { left: 200%; opacity: 0; }
+        }
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: shine-swipe 4s infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
         @keyframes fadeOut {
           from { opacity: 1; }
           to { opacity: 0; pointer-events: none; visibility: hidden; }
