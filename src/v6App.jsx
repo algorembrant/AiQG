@@ -371,28 +371,31 @@ const ALL_LLMS = [
 
 ];
 
-// --- NEW: CUTE CHARACTER IMAGES CONFIGURATION ---
-// Assuming a naming convention based on your request. 
-// If you have specific names, add them here.
-const CUTE_IMAGES = [
-  '/cute characters/cute pixel char-1.png',
-  '/cute characters/cute pixel char-2.png', 
-  '/cute characters/cute pixel char-3.png',
-  '/cute characters/cute pixel char-4.png',
-  '/cute characters/cute pixel char-5.png',
-  '/cute characters/cute pixel char-6.png',
-];
-
-const getRandomImage = () => {
-  const randomIndex = Math.floor(Math.random() * CUTE_IMAGES.length);
-  return CUTE_IMAGES[randomIndex];
-};
-
 // Mock stock data generator
 const generateMockStocks = () => {
   const symbols = [
     'AAPL', 'GOOGL', 'MSFT', 'AMZN', 'META', 'NVDA', 'TSLA', 'NFLX', 'AMD', 'INTC', 
+    'CRM', 'ORCL', 'ADBE', 'CSCO', 'AVGO', 'QCOM', 'TXN', 'IBM', 'INTU', 'NOW',
+    'JPM', 'BAC', 'WFC', 'GS', 'MS', 'C', 'BLK', 'SCHW', 'AXP', 'V', 'MA', 'PYPL',
+    'JNJ', 'UNH', 'PFE', 'ABBV', 'TMO', 'MRK', 'LLY', 'ABT', 'DHR', 'BMY', 'AMGN',
+    'WMT', 'HD', 'PG', 'KO', 'PEP', 'COST', 'MCD', 'NKE', 'SBUX', 'TGT', 'LOW',
+    'XOM', 'CVX', 'COP', 'SLB', 'EOG', 'PXD', 'MPC', 'PSX', 'VLO', 'OXY',
+    'BA', 'HON', 'UPS', 'CAT', 'DE', 'GE', 'MMM', 'LMT', 'RTX', 'FDX',
+    'DIS', 'CMCSA', 'T', 'VZ', 'TMUS', 'NFLX', 'WBD', 'PARA', 'FOXA',
+    'TSLA', 'F', 'GM', 'TM', 'HMC', 'RIVN', 'LCID',
+    'NVDA', 'AMD', 'INTC', 'TSM', 'AVGO', 'QCOM', 'MU', 'AMAT', 'LRCX', 'KLAC',
+    'AMZN', 'BABA', 'SHOP', 'MELI', 'SQ', 'PYPL', 'EBAY',
+    'CRM', 'NOW', 'SNOW', 'DDOG', 'PLTR', 'U', 'NET', 'ZS', 'CRWD', 'OKTA',
+    'META', 'SNAP', 'PINS', 'RDDT',
+    'GILD', 'VRTX', 'REGN', 'BIIB', 'MRNA', 'BNTX',
+    'BA', 'LMT', 'NOC', 'GD', 'RTX', 'TDG',
+    'NKE', 'LULU', 'TJX', 'ROST',
+    'PLD', 'AMT', 'CCI', 'EQIX', 'PSA', 'O',
+    'COIN', 'MSTR', 'RIOT', 'MARA',
+    'SPY', 'QQQ', 'DIA', 'IWM', 'VTI', 'VOO',
+    'TSM', 'ASML', 'NVO', 'SAP', 'TM', 'SONY', 'SNY'
   ];
+
   return symbols.map(symbol => {
     const basePrice = Math.random() * 500 + 100;
     const change = (Math.random() - 0.5) * 10;
@@ -458,19 +461,26 @@ function App() {
     if (typeof window === 'undefined') return false;
     
     const ua = navigator.userAgent || navigator.vendor || window.opera;
+    // 1. Regex check for specific mobile operating systems
     const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase());
+    
+    // 2. Aspect Ratio check: Portrait mode usually implies mobile/tablet
     const isPortrait = window.innerHeight > window.innerWidth;
     const ratio = window.innerWidth / window.innerHeight;
+    
+    // 3. Width threshold check
     const isSmallScreen = window.innerWidth < 1024;
 
+    // Logic: It's mobile if it matches a device regex OR (it's a small screen AND has a portrait aspect ratio)
     return isMobileDevice || (isSmallScreen && (isPortrait || ratio < 1.0));
   }, []);
 
   const [isMobile, setIsMobile] = useState(checkMobile());
 
-  // --- STYLING VARIABLES ---
+  // --- STYLING VARIABLES FOR GOLD BUTTONS (With Shine Effect) ---
   const isButtonDisabled = activeLLMs.length === 0;
   
+  // Added 'shine-effect' class and enhanced gradient
   const goldButtonStyle = `
     relative overflow-hidden flex items-center gap-1.5 px-3 py-1.5 text-sm font-bold rounded-lg transition-all transform 
     text-gray-900 bg-gradient-to-r from-yellow-300 via-yellow-400 to-amber-500 border border-yellow-200 
@@ -536,6 +546,8 @@ function App() {
         const API_KEY = 'ct9pr41r01qnhfe93jagct9pr41r01qnhfe93jb0';
         const symbols = [
           'AAPL', 'GOOGL', 'MSFT', 'AMZN', 'META', 'NVDA', 'TSLA', 'NFLX', 'AMD', 'INTC',
+          'JPM', 'BAC', 'V', 'MA', 'WMT', 'HD', 'DIS', 'BA', 'KO', 'PEP',
+          'COST', 'NKE', 'MCD', 'SBUX', 'XOM', 'CVX', 'JNJ', 'UNH', 'PFE', 'ABBV'
         ];
         
         const stockData = [];
@@ -599,8 +611,7 @@ function App() {
     if (item) {
       setActiveLLMs(prev => {
         if (!prev.find(llm => llm.id === item.id)) {
-          // Assign a random cute background image when item is dropped
-          return [...prev, { ...item, bgImage: getRandomImage() }];
+          return [...prev, item];
         }
         return prev;
       });
@@ -813,17 +824,17 @@ function App() {
                     </button>
 
                     <span className="text-xs text-gray-400">
-                        {page * ITEMS_PER_PAGE + 1} - {Math.min((page + 1) * ITEMS_PER_PAGE, filteredLLMs.length)}
+                       {page * ITEMS_PER_PAGE + 1} - {Math.min((page + 1) * ITEMS_PER_PAGE, filteredLLMs.length)}
                     </span>
 
                     <button 
-                        onClick={() => setPage(p => p + 1)}
-                        disabled={(page + 1) * ITEMS_PER_PAGE >= filteredLLMs.length}
-                        className={`text-xs flex items-center gap-1 px-3 py-2 rounded font-medium ${
-                          (page + 1) * ITEMS_PER_PAGE >= filteredLLMs.length 
-                          ? 'text-gray-300' 
-                          : 'text-blue-600 hover:bg-blue-50'
-                        }`}
+                       onClick={() => setPage(p => p + 1)}
+                       disabled={(page + 1) * ITEMS_PER_PAGE >= filteredLLMs.length}
+                       className={`text-xs flex items-center gap-1 px-3 py-2 rounded font-medium ${
+                         (page + 1) * ITEMS_PER_PAGE >= filteredLLMs.length 
+                         ? 'text-gray-300' 
+                         : 'text-blue-600 hover:bg-blue-50'
+                       }`}
                     >
                       + Show Next 50
                       <ChevronRight className="w-3 h-3" />
@@ -958,30 +969,19 @@ function App() {
                       </div>
                     </div>
 
-                    <div className="flex-1 relative bg-gray-900 overflow-hidden group">
-                      {/* Randomly assigned cute character background */}
-                      <img 
-                        src={llm.bgImage || '/cute characters/cute pixel char-1.png'}
-                        alt="Cute Character"
-                        className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
-                      />
-                      
-                      {/* Glass-morphism Overlay for button readability */}
-                      <div className="absolute inset-0 bg-white/0 backdrop-blur-[1.5px]"></div>
-
-                      {/* Ready to Launch GUI - Now Centered Perfectly */}
-                      <div className="absolute inset-0 flex items-center justify-center p-4 z-10">
-                        <div className="text-center">
-                          <div className="p-6 rounded-x5 bg-white/50 backdrop-blur-x1 shadow-2xl border border-white/0 transform transition-all hover:scale-105">
-                            <h3 className="font-bold text-gray-900 mb-4 text-lg drop-shadow-sm">
-                              Ready to Launch
-                            </h3>
-                            <div className="space-y-3 max-w-xs mx-auto">
-                              <button onClick={() => openInNewWindow(llm)} className="w-full px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 font-medium">
+                    <div className="flex-1 relative bg-gray-50 overflow-hidden">
+                      <div className="absolute inset-0 flex items-center justify-center p-8">
+                        <div className="text-center space-y-4">
+                          <AlertCircle className="w-12 h-12 mx-auto text-gray-400" />
+                          <div>
+                            <h3 className="font-medium text-gray-900 mb-2">Direct Embedding Blocked</h3>
+                            <p className="text-sm text-gray-600 mb-4">Security policies prevent iframe loading</p>
+                            <div className="space-y-2 max-w-xs mx-auto">
+                              <button onClick={() => openInNewWindow(llm)} className="w-full px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
                                 <ExternalLink className="w-4 h-4" />
                                 Open Popup Window
                               </button>
-                              <a href={llm.url} target="_blank" rel="noopener noreferrer" className="block w-full px-4 py-2 border border-gray-900/20 bg-white/60 rounded-lg hover:bg-white text-center text-sm transition-colors font-medium text-gray-800">
+                              <a href={llm.url} target="_blank" rel="noopener noreferrer" className="block w-full px-4 py-2 border border-gray-300 rounded-lg hover:bg-white text-center text-sm transition-colors">
                                 Open in New Tab
                               </a>
                             </div>
@@ -1029,10 +1029,10 @@ function App() {
           animation-play-state: paused !important;
         }
 
-        /* Massive performance boost for long lists */
+        /* Massive performance boost for long lists - tells browser to not render off-screen items fully */
         .content-visibility-auto {
           content-visibility: auto; 
-          contain-intrinsic-size: 60px;
+          contain-intrinsic-size: 60px; /* Approximate height of one item */
         }
 
         @keyframes scroll {
@@ -1058,6 +1058,13 @@ function App() {
           100% { background-position: 0% 50%; }
         }
         
+        /* NEW: Button Shine Effect */
+        @keyframes shine-swipe {
+            0% { left: -100%; opacity: 0; }
+            5% { opacity: 0.5; }
+            50% { left: 200%; opacity: 0; }
+            100% { left: 200%; opacity: 0; }
+        }
         .shine-effect::after {
             content: '';
             position: absolute;
