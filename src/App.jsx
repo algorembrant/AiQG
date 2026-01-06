@@ -142,8 +142,8 @@ const ALL_LLMS = [
   { id: 'chatpdf', name: 'ChatPDF', url: 'https://www.chatpdf.com/', icon: 'https://www.chatpdf.com/favicon.ico', category: 'Specialized' },
   { id: 'humata', name: 'Humata AI', url: 'https://www.humata.ai/', icon: 'https://www.humata.ai/favicon.ico', category: 'Specialized' },
   { id: 'chatdoc', name: 'ChatDOC', url: 'https://chatdoc.com/', icon: 'https://chatdoc.com/favicon.ico', category: 'Specialized' },
-  { id: 'perplexity-labs', name: 'Perplexity Labs', url: 'https://labs.perplexity.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Specialized' },
-  { id: 'anthropic-workbench', name: 'Claude Workbench', url: 'https://console.anthropic.com/workbench', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Specialized' },
+  { id: 'perplexity-labs', name: 'Perplexity Labs', url: 'https://labs.perplexity.ai/', icon: 'https://th.bing.com/th/id/ODF.2WzwWmHtYsHp0TAgDxOGpA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2g', category: 'Specialized' },
+  { id: 'anthropic-workbench', name: 'Claude Workbench', url: 'https://console.anthropic.com/workbench', icon: 'https://th.bing.com/th/id/ODF.AbftcyWc11j_LEXLzaH2fw?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Specialized' },
   
   // Code-Focused AI
   { id: 'codeium', name: 'Codeium Chat', url: 'https://codeium.com/chat', icon: 'https://www.gartner.com/pi/vendorimages/codeium_1723350650795.png', category: 'Coding' },
@@ -174,11 +174,12 @@ const ALL_LLMS = [
   { id: 'gradescope', name: 'Gradescope AI', url: 'https://www.gradescope.com/', icon: 'https://www.gradescope.com/favicon.ico', category: 'Education' },
   { id: 'tutorly', name: 'Tutorly.ai', url: 'https://www.tutorly.ai/', icon: 'https://www.tutorly.ai/favicon.ico', category: 'Education' },
   { id: 'duolingo', name: 'Duolingo Max', url: 'https://www.duolingo.com/max', icon: 'https://www.duolingo.com/favicon.ico', category: 'Education' },
-  { id: 'mathway', name: 'Mathway', url: 'https://www.mathway.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Education' },
-  { id: 'studymonkey', name: 'StudyMonkey', url: 'https://studymonkey.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Education' },
-  { id: 'tutoreva', name: 'TutorEva', url: 'https://www.tutoreva.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Education' },
-  { id: 'gauth', name: 'Gauth', url: 'https://www.gauthmath.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Education' },
-  { id: 'aimath', name: 'AI Math', url: 'https://aimath.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Education' },
+  { id: 'mathway', name: 'Mathway', url: 'https://www.mathway.com/', icon: 'https://th.bing.com/th/id/ODF.5EfwnocTH_HEcNsELrJB7g?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Education' },
+  { id: 'studymonkey', name: 'StudyMonkey', url: 'https://studymonkey.ai/', icon: 'https://th.bing.com/th/id/ODF.x-GuAKhlHBb_KxR6q-nPMw?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Education' },
+  { id: 'tutoreva', name: 'TutorEva', url: 'https://www.tutoreva.com/', icon: 'https://th.bing.com/th/id/ODF.YqevZ49OVIsiY5o0rYzbug?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Education' },
+  { id: 'gauth', name: 'Gauth', url: 'https://www.gauthmath.com/', icon: 'https://th.bing.com/th/id/ODF.Aa9Ms9GotOWEALMZQ4xoOw?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Education' },
+  { id: 'aimath', name: 'AI Math', url: 'https://aimath.com/', icon: 'https://th.bing.com/th/id/ODF.boL1w5H0U_lov1_mg0F9Tg?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Education' },
+  { id: 'mathgpt', name: 'MathGPT', url: 'https://math-gpt.org/', icon: 'https://th.bing.com/th/id/ODF.w3laiwTsrvV-GB8b2fsxyg?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Education' },
   
   // Creative AI
   { id: 'midjourney', name: 'Midjourney', url: 'https://www.midjourney.com/', icon: 'https://th.bing.com/th/id/ODF.3sJnfMVcw7tOfxzyjgrHag?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Creative' },
