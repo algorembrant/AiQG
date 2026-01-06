@@ -43,11 +43,11 @@ const ALL_LLMS = [
   { id: 'gemma', name: 'Gemma', url: 'https://ai.google.dev/gemma', icon: 'https://www.gstatic.com/lamda/images/gemini_favicon_f069958c85030456e93de685481c559f160ea06b.png', category: 'Open Source' },
   { id: 'bloom', name: 'Bloom', url: 'https://huggingface.co/bigscience/bloom', icon: 'https://huggingface.co/front/assets/huggingface_logo.svg', category: 'Open Source' },
   { id: 'falcon-180b', name: 'Falcon 180B', url: 'https://huggingface.co/tiiuae/falcon-180B', icon: 'https://th.bing.com/th/id/ODF.0FvwAD4tBPkdBYxXIChydg?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2', category: 'Open Source' },
-  { id: 'vicuna', name: 'Vicuna', url: 'https://chat.lmsys.org/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
-  { id: 'wizardlm', name: 'WizardLM', url: 'https://github.com/nlpxucan/WizardLM', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
-  { id: 'openchat', name: 'OpenChat', url: 'https://openchat.team/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
-  { id: 'starling', name: 'Starling', url: 'https://starling.cs.berkeley.edu/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
-  { id: 'zephyr', name: 'Zephyr', url: 'https://huggingface.co/HuggingFaceH4/zephyr-7b-beta', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
+  { id: 'vicuna', name: 'Vicuna', url: 'https://chat.lmsys.org/', icon: 'https://lmsys.org/images/blog/vicuna/vicuna.jpeg', category: 'Open Source' },
+  { id: 'wizardlm', name: 'WizardLM', url: 'https://github.com/nlpxucan/WizardLM', icon: 'https://cdn-avatars.huggingface.co/v1/production/uploads/627b9f3f4d0858f0034efbb9/2Qnattrzv6qvqiZVVfV5x.png', category: 'Open Source' },
+  { id: 'Superhuman', name: 'Superhuman', url: 'https://superhuman.com/', icon: 'https://th.bing.com/th/id/OADD2.1186373077969597_1UIXWR84Z0I7PN4?w=32&h=32&o=6&pid=21.2', category: 'Open Source' },
+  { id: 'starling', name: 'Starling', url: 'https://starling.cs.berkeley.edu/', icon: 'https://starling.cs.berkeley.edu/starling.png', category: 'Open Source' },
+  { id: 'zephyr', name: 'Zephyr', url: 'https://huggingface.co/HuggingFaceH4/zephyr-7b-beta', icon: 'https://huggingface.co/HuggingFaceH4/zephyr-7b-alpha/resolve/main/thumbnail.png', category: 'Open Source' },
   { id: 'phi', name: 'Microsoft Phi', url: 'https://huggingface.co/microsoft/phi-2', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
   { id: 'qwen', name: 'Qwen', url: 'https://huggingface.co/Qwen', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Open Source' },
   
@@ -385,6 +385,7 @@ const CUTE_IMAGES = [
   '/cute characters/cute pixel char-6.png',
   '/cute characters/cute pixel char-7.png',
   '/cute characters/cute pixel char-8.png',
+  '/cute characters/cute pixel char-9.png',
   
 ];
 
