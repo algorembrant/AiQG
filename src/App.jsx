@@ -876,7 +876,7 @@ function App() {
                 <div className="text-center">
                   <Grid className="w-16 h-16 mx-auto mb-4 opacity-50" />
                   <p className="text-lg font-medium">Drop AI models here</p>
-                  <p className="text-sm mt-2">Drag from sidebar to compare</p>
+                  <p className="text-sm mt-2">Drag from sidebar</p>
                 </div>
               </div>
             ) : (
