@@ -93,19 +93,18 @@ const ALL_LLMS = [
   { id: 'arabert', name: 'AraBERT', url: 'https://huggingface.co/aubmindlab/bert-base-arabertv2', icon: 'https://cdn-avatars.huggingface.co/v1/production/uploads/1593638141642-5e586b9e6bc35159a08ca571.png', category: 'Arabic' },
 
   // Southeast Asian AI
-  { id: 'sealion', name: 'SEA-LION', url: 'https://aisingapore.org/aiproducts/sea-lion/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Southeast Asian' },
-  { id: 'seallm', name: 'SeaLLM', url: 'https://damo.alibaba.com/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Southeast Asian' },
-  { id: 'seachat', name: 'SeaChat', url: 'https://www.seasalt.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Southeast Asian' },
-  { id: 'seagull', name: 'SeaGULL', url: 'https://github.com/aisingapore/seagull', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Southeast Asian' },
-  
+  { id: 'sealion', name: 'SEA-LION', url: 'https://aisingapore.org/aiproducts/sea-lion/', icon: 'https://avatars.githubusercontent.com/u/110224767?s=48&v=4', category: 'Southeast Asian' },
+  { id: 'seallm', name: 'SeaLLM', url: 'https://damo.alibaba.com/', icon: 'https://cdn-avatars.huggingface.co/v1/production/uploads/6393f04df7e70dd0166c004e/kfq8wHQEBZ5aicMzjOqKG.png', category: 'Southeast Asian' },
+  { id: 'seachat', name: 'SeaChat', url: 'https://www.seasalt.ai/', icon: 'https://seasalt.ai/seachat-logo.png', category: 'Southeast Asian' },
+
   // Korean AI Platforms
   { id: 'clova', name: 'Clova X', url: 'https://clova-x.naver.com/', icon: 'https://th.bing.com/th/id/ODF.uK-_L73tIIHutUT4oNX8aQ?w=32&h=32&qlt=91&pcl=fffffa&o=6&pid=1.2', category: 'Korean' },
   { id: 'wrtn', name: 'Wrtn', url: 'https://wrtn.ai/', icon: 'https://th.bing.com/th/id/ODF.XZquXv8QTpZQMnMMqeKzCA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Korean' },
-  { id: 'exaone', name: 'Exaone', url: 'https://www.lgresearch.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Korean' },
-  { id: 'hyperclova', name: 'HyperClova X', url: 'https://www.navercorp.com/service/clovaX', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Korean' },
-  { id: 'kakaobrain', name: 'KoGPT', url: 'https://www.kakaobrain.com/', icon: 'https://avatars.githubusercontent.com/u/25736994?s=200&v=4', category: 'Korean' },
-  { id: 'solar', name: 'Solar Pro', url: 'https://www.upstage.ai/', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Korean' },
-  { id: 'polyglot', name: 'Polyglot-Ko', url: 'https://github.com/EleutherAI/polyglot', icon: 'https://pngfre.com/wp-content/uploads/question-mark-42-1024x1024.png', category: 'Korean' },
+  { id: 'exaone', name: 'Exaone', url: 'https://www.lgresearch.ai/', icon: 'https://avatars.githubusercontent.com/u/176996183?s=48&v=4', category: 'Korean' },
+  { id: 'hyperclova', name: 'HyperClova X', url: 'https://www.navercorp.com/service/clovaX', icon: 'https://th.bing.com/th/id/ODF.ARmn9w7DPGMXmSSmd9giOg?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Korean' },
+  { id: 'kakaobrain', name: 'KoGPT', url: 'https://www.kakaobrain.com/', icon: 'https://avatars.githubusercontent.com/u/25736994?s=48&v=4', category: 'Korean' },
+  { id: 'solar', name: 'Solar Pro', url: 'https://www.upstage.ai/', icon: 'https://th.bing.com/th/id/ODF.7sl0I-QWM8otzpdPZG7AKg?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Korean' },
+  { id: 'polyglot', name: 'Polyglot-Ko', url: 'https://github.com/EleutherAI/polyglot', icon: 'https://avatars.githubusercontent.com/u/68924597?s=48&v=4', category: 'Korean' },
  
   // Japanese AI Platforms
   { id: 'rinna', name: 'Rinna AI', url: 'https://rinna.co.jp/AI-rinna/', icon: 'https://th.bing.com/th/id/ODF.E-18kEsU8XoEnRg-exXcaQ?w=32&h=32&qlt=95&pcl=fffffa&o=6&pid=1.2', category: 'Japanese' },
