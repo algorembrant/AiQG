@@ -705,7 +705,7 @@ function App() {
             AiQuasarous Global
             </h1>
             <p className="text-2xl text-gray-200 intro-subtitle font-serif italic tracking-wide">
-              Drag-drop-open your favorite Model
+              Drag-drop-open your favorite AI Model
             </p>
             <p className="text-xl text-yellow-300 intro-count font-light tracking-widest uppercase">
               Explore {ALL_LLMS.length} AI platforms available worldwide
