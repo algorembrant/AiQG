@@ -116,7 +116,7 @@ const ALL_LLMS = [
 
   // Philippine AI Platforms
   { id: 'lexpilipinas', name: 'Lex Pilipinas', url: 'https://lexpilipinas.com/', icon: 'https://th.bing.com/th/id/OIP.KbM1YMwDPh7LDFAQ8rjVzgHaBH?w=361&h=58&c=7&r=0&o=7&pid=1.7&rm=3', category: 'Philippines' },
-  { id: 'likasgpt', name: 'LikásGPT', url: 'https://www.infinivan.com/infinivan-and-up-diliman-unveil-likasgpt-ai-powered-crm-designed-to-understand-the-filipino-voice/', icon: 'https://th.bing.com/th/id/ODF.E_pcQ0vuT9D7Fl3dexKp7g?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Philippines' },
+  { id: 'likasgpt', name: 'LikásGPT', url: 'https://www.infinivan.com/infinivan-and-up-diliman-unveil-likasgpt-ai-powered-crm-designed-to-understand-the-filipino-voice/', icon: 'https://instagram.fcgy2-2.fna.fbcdn.net/v/t51.2885-19/472129847_1138266511032601_1209152771603410851_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fcgy2-2.fna.fbcdn.net&_nc_cat=101&_nc_oc=Q6cZ2QEAzGbbSwNS5paRiy4rw4CEulp-bNibSgu-mvfaytEgt59hhVXAR7QMG97P_lZc1WymJgAOGadjj6CS7pCl1ahu&_nc_ohc=siPr7clRw1wQ7kNvwGxsmDT&_nc_gid=fnuFGUj0sE9r_QEiuM-JCg&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Afqv08vDGqGAmD7y5PCIM3iXRSv4iRPjfkBxNuqOTufpxA&oe=6962B2BE&_nc_sid=7a9f4b', category: 'Philippines' },
 
   // European AI Platforms
   { id: 'aleph-alpha', name: 'Aleph Alpha', url: 'https://www.aleph-alpha.com/', icon: 'https://th.bing.com/th/id/ODF.SwZfiEsJF4mmAXN-QDd19g?w=32&h=32&qlt=93&pcl=fffffa&o=6&pid=1.2', category: 'European' },
