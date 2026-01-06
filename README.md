@@ -77,7 +77,7 @@ Welcome to your AI starting point. <br><br>
 
 <br>
 
-### Access 264 AI LLM models accros 35 categories worldwide
+### ✨ Access 284 AI LLM models across 37 categories worldwide!
 
 **Major**<br>
 ChatGPT, Claude, Google Gemini, Microsoft Copilot
