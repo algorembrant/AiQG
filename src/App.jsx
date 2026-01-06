@@ -20,7 +20,7 @@ const ALL_LLMS = [
   { id: 'scholarai', name: 'ScholarAI', url: 'https://scholar-ai.net/', icon: 'https://scholar-ai.net/favicon.ico', category: 'Search' },
   { id: 'tavily', name: 'Tavily', url: 'https://tavily.com/', icon: 'https://tavily.com/favicon.ico', category: 'Search' },
   { id: 'morphic', name: 'Morphic', url: 'https://morphic.sh/', icon: 'https://morphic.sh/favicon.ico', category: 'Search' },
-  { id: 'iask', name: 'iAsk.ai', url: 'https://iask.ai/', icon: 'https://th.bing.com/th/id/ODF.2fOAZ6vZUn5A_maWopELAA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2' , category: 'Search' },
+  { id: 'iask', name: 'iAsk.ai', url: 'https://iask.ai/', icon: 'https://th.bing.com/th/id/ODF.2fOAZ6vZUn5A_maWopELAA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2' },
 
   // Multi-Model Platforms
   { id: 'poe', name: 'Poe', url: 'https://poe.com/', icon: 'https://th.bing.com/th/id/ODF.qYxPu_oPp_nqOxV638KgEA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Multi-Model' },
@@ -370,7 +370,6 @@ const ALL_LLMS = [
   { id: 'Lacuna', name: 'Lacuna', url: 'https://humanplane.com/lacuna', icon: 'https://avatars.githubusercontent.com/u/240769383?s=48&v=4', category: 'Trading' },
 
 ];
-
 // Mock stock data generator
 const generateMockStocks = () => {
   const symbols = [
@@ -441,6 +440,7 @@ const SidebarItem = React.memo(({ llm, onDragStart }) => (
 function App() {
   const [activeLLMs, setActiveLLMs] = useState([]);
   const draggedItemRef = useRef(null); 
+  const sidebarScrollRef = useRef(null); // Ref for auto-scrolling sidebar
 
   const [showSidebar, setShowSidebar] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -457,6 +457,9 @@ function App() {
   const [page, setPage] = useState(0);
   const ITEMS_PER_PAGE = 50;
 
+  // ADJUSTMENT: Mobile detection state
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+
   const categories = useMemo(() => {
     return ['All', ...new Set(ALL_LLMS.map(llm => llm.category))].sort();
   }, []);
@@ -468,10 +471,26 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Window resize listener for mobile state
+  useEffect(() => {
+    const handleResize = () => {
+        setIsMobile(window.innerWidth < 1000);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Reset page to 0 if filter changes
   useEffect(() => {
     setPage(0);
   }, [selectedCategory, searchQuery]);
+
+  // ADJUSTMENT: Scroll sidebar to top when page changes
+  useEffect(() => {
+    if (sidebarScrollRef.current) {
+        sidebarScrollRef.current.scrollTop = 0;
+    }
+  }, [page]);
 
   // 1. Get ALL matches (The Total Count)
   const filteredLLMs = useMemo(() => {
@@ -749,7 +768,10 @@ function App() {
             </div>
 
             {/* List area with content-visibility for performance */}
-            <div className="flex-1 overflow-y-auto p-4 content-visibility-auto">
+            <div 
+              ref={sidebarScrollRef}
+              className="flex-1 overflow-y-auto p-4 content-visibility-auto scroll-smooth"
+            >
               <div className="space-y-2">
                 {visibleLLMs.map(llm => (
                   <SidebarItem 
@@ -829,31 +851,36 @@ function App() {
               </div>
 
               <div className="flex items-center gap-2">
-                <button 
-                  onClick={openAllTabs} 
-                  disabled={activeLLMs.length === 0}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
-                    activeLLMs.length === 0 
-                    ? 'text-gray-400 bg-gray-50 cursor-not-allowed' 
-                    : 'text-white bg-blue-600 hover:bg-blue-700'
-                  }`}
-                >
-                  <Monitor className="w-4 h-4" />
-                  <span className="hidden sm:inline">Openall Tabs</span>
-                </button>
+                {/* ADJUSTMENT: Only show these advanced buttons if NOT mobile */}
+                {!isMobile && (
+                  <>
+                    <button 
+                      onClick={openAllTabs} 
+                      disabled={activeLLMs.length === 0}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all btn-luxury ${
+                        activeLLMs.length === 0 
+                        ? 'opacity-50 cursor-not-allowed grayscale' 
+                        : 'hover:scale-105'
+                      }`}
+                    >
+                      <Monitor className="w-4 h-4" />
+                      <span className="hidden sm:inline">Openall Tabs</span>
+                    </button>
 
-                <button 
-                  onClick={openAllPopups} 
-                  disabled={activeLLMs.length === 0}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
-                    activeLLMs.length === 0 
-                    ? 'text-gray-400 bg-gray-50 cursor-not-allowed' 
-                    : 'text-white bg-purple-600 hover:bg-purple-700'
-                  }`}
-                >
-                  <AppWindow className="w-4 h-4" />
-                  <span className="hidden sm:inline">Openall Popups</span>
-                </button>
+                    <button 
+                      onClick={openAllPopups} 
+                      disabled={activeLLMs.length === 0}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all btn-luxury ${
+                        activeLLMs.length === 0 
+                        ? 'opacity-50 cursor-not-allowed grayscale' 
+                        : 'hover:scale-105'
+                      }`}
+                    >
+                      <AppWindow className="w-4 h-4" />
+                      <span className="hidden sm:inline">Openall Popups</span>
+                    </button>
+                  </>
+                )}
 
                 <button 
                   onClick={() => setActiveLLMs([])} 
@@ -958,6 +985,28 @@ function App() {
       </div>
 
       <style>{`
+        /* Luxurious Gold Button Style */
+        .btn-luxury {
+          background: linear-gradient(45deg, #FFD700, #FDB931, #FFFFFF, #FDB931, #FFD700);
+          background-size: 200% auto;
+          color: #2e2810; /* Dark text */
+          border: 1px solid #c5a028;
+          box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+          animation: shine 4s linear infinite;
+          text-shadow: 0px 1px 0px rgba(255,255,255,0.4);
+        }
+        
+        .btn-luxury:hover {
+          background-position: right center;
+          box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        @keyframes shine {
+          to {
+            background-position: 200% center;
+          }
+        }
+
         /* Forces GPU usage to prevent repaint lag */
         .will-change-transform {
           will-change: transform;
