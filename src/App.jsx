@@ -930,8 +930,8 @@ function App() {
           animation: glow-pulse 2s ease-in-out infinite, gradient-shift 3s ease infinite;
         }
 
-        .animate-scroll { animation: scroll 500s linear infinite; }
-        .animate-scroll-reverse { animation: scroll-reverse 500s linear infinite; }
+        .animate-scroll { animation: scroll 1000s linear infinite; }
+        .animate-scroll-reverse { animation: scroll-reverse 1000s linear infinite; }
         .animate-scroll:hover, .animate-scroll-reverse:hover { animation-play-state: paused; }
         
         /* Custom range slider styling */
