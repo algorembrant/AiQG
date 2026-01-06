@@ -20,7 +20,7 @@ const ALL_LLMS = [
   { id: 'scholarai', name: 'ScholarAI', url: 'https://scholar-ai.net/', icon: 'https://scholar-ai.net/favicon.ico', category: 'Search' },
   { id: 'tavily', name: 'Tavily', url: 'https://tavily.com/', icon: 'https://tavily.com/favicon.ico', category: 'Search' },
   { id: 'morphic', name: 'Morphic', url: 'https://morphic.sh/', icon: 'https://morphic.sh/favicon.ico', category: 'Search' },
-  { id: 'iask', name: 'iAsk.ai', url: 'https://iask.ai/', icon: 'https://th.bing.com/th/id/ODF.2fOAZ6vZUn5A_maWopELAA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2' },
+  { id: 'iask', name: 'iAsk.ai', url: 'https://iask.ai/', icon: 'https://th.bing.com/th/id/ODF.2fOAZ6vZUn5A_maWopELAA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2' , category: 'Search' },
 
   // Multi-Model Platforms
   { id: 'poe', name: 'Poe', url: 'https://poe.com/', icon: 'https://th.bing.com/th/id/ODF.qYxPu_oPp_nqOxV638KgEA?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2', category: 'Multi-Model' },
